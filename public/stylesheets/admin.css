@@ -1,0 +1,21 @@
+.menu {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+.main-boxes img{
+    width: 128px;
+    height: 128px;
+}
+.menu a {
+    margin: 20px;
+}
+.main{
+    background: #fff;
+}
+.main-boxes{
+    display: flex;
+    justify-content: center;
+    margin-bottom:100px;
+    margin-left: 300px;
+}

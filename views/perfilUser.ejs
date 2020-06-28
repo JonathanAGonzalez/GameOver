@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('./partials/head') %>
+
+<body>
+    <div class="container-fluid">
+        <!--HEADER-->
+        <%- include('./partials/header') %>
+        <%- include('./partials/navbar') %>
+
+        <% let logeadoPerfil= users.find(element => { %>
+        <% return element.email == logeadoUser %>
+        <% }) %>
+
+        <% if (logeadoPerfil) { %>
+
+        <div class="container  ">
+            <!--Logo-->
+            <div class="row">
+                <div class="col-sm-10">
+                    <h1><%= logeadoPerfil.first_name %> </h1><a class="btn btn-primary" href="/user/logout"
+                        role="button">Logout</a>
+                </div>
+                <div class="col-sm-2"><a href="#" class="pull-right"><img title="profile image"
+                            class="img-circle img-responsive img-fluid" src="/images/logo.png"></a></div>
+            </div>
+            <!--AVATAR-->
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="logo">
+                        <img src="/images/img-perfil/<%=logeadoPerfil.avatar %>" class="avatar img-circle img-thumbnail"
+                            alt="avatar">
+                    </div>
+                    </hr><br>
+                    <!--WEBSITE-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+                        <div class="panel-body"><a href="#">www.GameOver.com.ar</a></div>
+                    </div>
+                    <!--ACTIVIDAD-->
+                    <ul class="list-group">
+                        <li class="list-group-item text-muted">Actividad</i></li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13
+                        </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37
+                        </li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span>
+                            78</li>
+                    </ul>
+                    <!--REDES SOCIALES-->
+                    <div class="panel mb-5">
+                        <div class="panel-heading mb-3">Redes Sociales:</div>
+                        <div class="panel-body">
+                            Instagram - Facebook - Twitter
+                        </div>
+                    </div>
+                </div>
+                <!--TITULO DATOS EDITAR-->
+                <div class="col-sm-9">
+                    <h5>Datos a editar:</h5>
+                    <hr>
+                    <!--FORMULARIO-->
+                    <form  action="/user/perfilUser" method="post" enctype="multipart/form-data">
+                        <!--NOMBRE-->
+                        <div class="col-xs-6">
+                            <label for="first_name">
+                                <h4>Nombre</h4>
+                            </label>
+                            <input type="text" class="form-control" name="first_name" id="first_name"
+                                value="<%=logeadoPerfil.first_name %>">
+                        </div>
+                        <!--APELLIDO-->
+                        <div class="col-xs-6">
+                            <label for="last_name">
+                                <h4>Apellido</h4>
+                            </label>
+                            <input type="text" class="form-control" name="last_name" id="last_name"
+                                value="<%=logeadoPerfil.last_name %>">
+                        </div>
+                        <!--EMAIL-->
+                        <div class="col-xs-6">
+                            <label for="email">
+                                <h4>Email</h4>
+                            </label>
+                            <input type="email" class="form-control" name="email" id="email"
+                                value="<%=logeadoPerfil.email %>">
+                        </div>
+                        <!--AVATAR-->
+                        <div class="col-xs-6">
+                            <label for="avatar">
+                                <h4>Avatar</h4>
+                            </label>
+                            <input type="file" class="form-control" name="file" id="file">
+                        </div>
+                        <!--CONTRASEÑA-->
+                        <div class="col-xs-6">
+                            <label for="password">
+                                <h4>Contraseña</h4>
+                            </label>
+                            <input type="password" class="form-control" name="password" id="password"
+                                placeholder="Nueva contraseña">
+                        </div>
+                        <!--GUARDAR-->
+                        <div class="col-xs-12">
+                            <br>
+                            <button class="btn btn-lg btn-success" type="submit"><i
+                                    class="glyphicon glyphicon-ok-sign"></i> Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <%- include('./partials/footer') %>
+    </div>
+    <% } %>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

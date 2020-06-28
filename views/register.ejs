@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('./partials/head') %>
+
+<body>
+    <div class="container-fluid">
+        <%- include('./partials/header') %>
+        <%- include('./partials/navbar') %>
+
+        <div class="container">
+          
+          <form class="col-11 col-md-8 col-lg-5 mb-4 mt-4" id="formulario" action="/user/register" method="POST" enctype="multipart/form-data">
+            
+            <% if (typeof errors !="undefined")  { %>
+              <div class="errors">
+                <p>❗Se encontraron los siguientes errores:</p>
+                <ul>
+                  <% for(let i = 0; i < errors.length; i++) { %>
+                    <li>
+                      ❌<%=errors[i].msg%> 
+                    </li>
+                    <% } %>
+                  </ul>
+                </div>
+                <% } %>
+                <h2 class="col-12 text-center">REGISTRO</h2>
+                <div class="name">
+                  <label for="first_name">Nombre: </label>
+                  <i class="user">👤</i>
+                  <input type="text" name="first_name" placeholder="Ingresa tu nombre" class="col-12 input-r">
+                </div>
+                <div class="apellido">
+                  <label for="last_name">Apellido: </label>
+                  <i class="user2">👤</i>
+                  <input type="text" name="last_name" placeholder="Ingresa tu apellido" class="col-12 input-r">
+                </div>
+                <div class="emaill">
+                  <label for="email">Email: </label>
+                  <i class="email-ico">📧</i>
+                  <input type="email" name="email" placeholder="ingresa tu email" class="col-12 input-r">
+                </div>
+               <div class="pass">
+                 <label for="password">Contraseña: </label>
+                 <i class="pass-ico">🔑</i>
+                 <input type="password" name="password" placeholder="Ingresa tu contraseña" class="col-12 input-r">
+               </div>
+               <div class="pass">
+                 <label for="password2">Repetir contraseña: </label>
+                 <i class="pass-ico">🔑</i>
+                 <input type="password" name="password2" placeholder="Repetir tu contraseña" class="col-12 input-r">
+               </div>
+                <label for="avatar">Avatar:</label>
+                <input class="form-control col-12" type="file" name="avatar" placeholder="" class="col-4 input-r">
+                <div class="enviar col-9">
+                  <button class="btn btn-success mt-4" type="submit">REGISTRARME</button>
+                </div>
+                
+              </form>
+              
+              
+              
+            </div>
+              
+              <%- include('./partials/footer') %>
+              
+            </div>
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+          </body>
+          
+          </html>

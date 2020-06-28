@@ -1,0 +1,124 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-image: url("../images/fanzone1.jpg");
+  background-size: cover;
+}
+
+.container .name {
+  position: relative;
+  width: 100%;
+}
+
+.container .name .user {
+  color: red;
+  position: absolute;
+  bottom: 10px;
+  left: 5px;
+  z-index: 1;
+}
+
+.container .apellido {
+  position: relative;
+  width: 100%;
+}
+
+.container .apellido .user2 {
+  position: absolute;
+  bottom: 10px;
+  left: 5px;
+  z-index: 1;
+}
+
+.container .emaill {
+  position: relative;
+  width: 100%;
+}
+
+.container .emaill .email-ico {
+  position: absolute;
+  bottom: 10px;
+  left: 2px;
+  z-index: 1;
+}
+
+.container .pass {
+  position: relative;
+  width: 100%;
+}
+
+.container .pass .pass-ico {
+  position: absolute;
+  bottom: 10px;
+  left: 2px;
+  z-index: 1;
+}
+
+#formulario {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#formulario .errors {
+  background: rgba(255, 0, 0, 0.452);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+#formulario .errors ul li {
+  list-style: none;
+}
+
+#formulario .errors p {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#formulario label {
+  margin: 20px;
+}
+
+#formulario .input-r {
+  padding: 10px;
+  padding-left: 30px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid red;
+  background: #a69e9e5e;
+}
+
+#formulario .input-r:focus {
+  color: green;
+}
+
+#formulario .input-r:required {
+  border: 2px solid green;
+}
+/*# sourceMappingURL=registry.css.map */
