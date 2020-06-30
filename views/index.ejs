@@ -43,18 +43,12 @@
             <hr>
           </div>
           <!--CAJA RECOMENDADOS-->
-
           <% for( let i = 0; i < recomendados.length; i++ ) { %>
-
-
             <div class="card col-dm-3 mb-3" style="width: 18rem;">
               <img class="card-img-top" src="/images/product-games/<%= recomendados[i].image %>  " alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title"><%= recomendados[i].name %></h5>
-                <hr>
-                <p class="card-text">
-                  <strong>Fecha de estreno inicial:<%= recomendados[i].release_date %> </strong> 
-                  
+                            
                   <%distributor.forEach(element => {%>
                     <% if (element.id == recomendados[i].distributor_id) { %>
                      
@@ -64,24 +58,16 @@
                       
                       <% } %>
                     <%});%>
-                      <% plataformas.forEach(element => { %>
-                        <% if (element.id == recomendados[i].distributor_id) { %>
-                        <strong>Plataformas: <%= element.name %> </strong>
-                        <hr>
-                        <% } %>
-                      <% }) %>
+                      
                   </p>
                     <strong class="precio">$<%= recomendados[i].price %></strong>
                     <hr>
                 <a href="/products/detail/" class="btn btn-primary offset-4">Comprar</a>
               </div>
             </div>
-
-
             <% } %> 
-          
-            
-       
+          <!--CAJA RECOMENDADOS FINAL-->
+
           <!-- TOP VENTAS -->
           <div class="row justify-content-around" id="top-venta">
             <!-- TITTLE PRODUCT -->
@@ -90,33 +76,30 @@
               <hr>
             </div>
             <!--CAJA 1-->
-            
-                <div class="card col-6 col-lg-2 col-sm-5 m-4 col-lg-3 col-xl-2" style="width: 18rem;">
-                  <img class="card-img-top" src="/images/product-games/" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title"> </h5>
+            <div id="contenedorc">
+            <% vendidos.forEach(masComprados => { %>
+
+                <div class="card  col-dm-3  mb-3" style="width: 18rem;">
+                  <img class="card-img-top" src="/images/product-games/<%= masComprados.image  %>   " alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title"><%= masComprados.name %> </h5>
+                  
+                  
+                  <hr>
+                  <% distributor.forEach(distribuidor => { %>
+                    <% if (distribuidor.id == masComprados.distributor_id) { %>
+                      <strong>Desarrollador: </strong><%= distribuidor.name %>
+                      <% } %>
+                      <% }) %>
+                      <hr>
+                    </p>
+                    <strong class="precio">$<%= masComprados.price %> </strong>
                     <hr>
-                    <p class="card-text">
-                      <strong>Fecha de estreno inicial: </strong> 
-                      <hr>
-                      <strong>Desarrollador: </strong>
-                      <hr>
-                      <strong>Plataformas: </strong>
-                      <hr>
-                      </p>
-                      
-                      
-                      
-                          <strong class="precio">$</strong>
-                        <hr>
                     <a href="/products/detail/" class="btn btn-primary offset-4">Comprar</a>
                   </div>
                 </div>
-            
-              
-
-
-           
+                <% }) %>
+              </div>
             </div>
           <!--OFERTAS-->
           <div class="titulo-product col-12">
@@ -126,46 +109,30 @@
 
           <!--CAJA 1-->
       
-          
-           
-                <div class="card col-dm-3 mb-3" style="width: 18rem;">
-                  <img class="card-img-top" src="/images/product-games/" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title"></h5>
+          <% ofertas.forEach(oferta => { %>
+            <div class="card col-dm-3 mb-3" style="width: 18rem;">
+              <img class="card-img-top" src="/images/product-games/<%= oferta.image %>  " alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><%= oferta.name %></h5>
+                            
+                  <%distributor.forEach(element => {%>
+                    <% if (element.id == oferta.distributor_id) { %>
+                     
+                      <hr>
+                      <strong>Desarrollador: <%= element.name %></strong>
+                      <hr>
+                      
+                      <% } %>
+                    <%});%>
+                      
+                  </p>
+                    <strong class="precio">$<%= oferta.price %></strong>
                     <hr>
-                    <p class="card-text">
-                      <strong>Fecha de estreno inicial: </strong> 
-                      <hr>
-                      <strong>Desarrollador: </strong>
-                      <hr>
-                      <strong>Serie: </strong>
-                      <hr>
-                      <strong>Plataformas: </strong>
-                      <hr>
-                      </p>
-                      
-                    
-                      
-                      
-  
-  
-  
-  
-  
-  
-                      
-                        <strong class="precio">
-                          
-                          
-                        
-
-                          
-
-                        </strong>
-                        <hr>
-                    <a href="/products/detail/" class="btn btn-primary offset-4">Comprar</a>
-                  </div>
-                </div>
+                <a href="/products/detail/" class="btn btn-primary offset-4">Comprar</a>
+              </div>
+            </div>
+          <% }) %>
+           
 
 
 

@@ -2,15 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const { check, validationResult, body } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const usersFilePath = path.join(__dirname, '../data/users.json');
-const usersJSON = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const db = require('../database/models');
 const sequelize = db.sequelize;
 
 
-let admin = usersJSON.filter(function(element) {
-    return element.admin;
-});
 
 
 
@@ -18,8 +13,7 @@ controller = {
     //REGISTRO
     register: function(req, res, next) {
         res.render('register', {
-            logeadoUser: req.session.logged,
-            users: usersJSON
+            logeadoUser: req.session.logged
         });
     },
     //REGISTRO PROCESO
@@ -36,8 +30,6 @@ controller = {
         }else{
             res.render('register',{
                 errors:errors.errors,
-                users: usersJSON,
-                logeadoUser: req.session.logged
             })
         }
 
@@ -53,8 +45,6 @@ controller = {
     login: function(req, res, next) {
         res.render('login', {
             logeadoUser: req.session.logged,
-            users: usersJSON,
-            admin: admin
         });
     },
     processLogin: function(req, res, next) {        
@@ -88,12 +78,6 @@ controller = {
     logout: function(req, res, next) {
         req.session.destroy()
         res.redirect('/')
-    },
-    fanZone: function(req, res) {
-        res.render('fanZone', {
-            logeadoUser: req.session.logged,
-            users: usersJSON,
-        });
     },
     perfilUser: (req, res, next) => {
 

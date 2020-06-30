@@ -6,6 +6,39 @@
   background: #d90429;
 }
 
+.container-fluid header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 50px;
+}
+
+.container-fluid header nav ul li {
+  margin-left: 20px;
+  list-style: none;
+}
+
+.container-fluid header nav ul li a {
+  color: white;
+}
+
+.container-fluid header .c-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+.container-fluid header .c-logo .logo {
+  width: 100px;
+}
+
 .container-fluid header .input-group {
   background: #cacaca;
 }
@@ -21,87 +54,9 @@
   color: #000000;
 }
 
-.container-fluid .menu {
-  background: #cacaca;
-}
-
-.container-fluid .menu ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  font-family: "Timmana", sans-serif;
-  font-size: 20px;
-  padding: 0;
-  margin: 0;
-}
-
-.container-fluid .menu ul li {
-  list-style: none;
-  padding: 20px;
-  position: relative;
-}
-
-.container-fluid .menu ul li a {
-  text-decoration: none;
-  color: #fff;
-  text-shadow: 1px 1px 2px #000000;
-  -webkit-transition: ease-in-out 0.4s;
-  transition: ease-in-out 0.4s;
-}
-
-.container-fluid .menu ul li a:hover {
-  color: #EF233C;
-}
-
-.container-fluid .menu ul li:hover .sub-menu {
-  display: block;
-  position: absolute;
-  background: #ef233c;
-  border-radius: 4px;
-  -webkit-box-shadow: -1px 1px 3px #000000;
-          box-shadow: -1px 1px 3px #000000;
-  font-size: 15px;
-  z-index: 1;
-}
-
-.container-fluid .menu ul li:hover .sub-menu a {
-  color: #fff;
-}
-
-.container-fluid .menu ul li:hover .sub-menu a:hover {
-  color: #b2ef23;
-}
-
-.container-fluid .menu ul li ul {
-  display: none;
-}
-
 .container-fluid .carousel {
   padding: 0;
   margin: 0;
-}
-
-.container-fluid .mobile {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.container-fluid .mobile .btn {
-  color: #EF233C;
-  border: 1px solid #EF233C;
-}
-
-.container-fluid .mobile .btn:hover {
-  background: #EF233C;
-  color: #fff;
-  -webkit-box-shadow: 1px 1px 2px #000000;
-          box-shadow: 1px 1px 2px #000000;
 }
 
 .container-fluid .titulo-product {
@@ -126,8 +81,8 @@
   font-family: "Baloo Paaji 2", cursive;
 }
 
-.container-fluid section section {
-  margin-bottom: 20px;
+.container-fluid section .card-img-top {
+  width: 100%;
 }
 
 .container-fluid section .btn {
@@ -173,35 +128,11 @@
   width: 100vw;
 }
 
-@media (min-width: 992px) {
-  .navbar {
-    display: none;
-  }
-}
-
-@media (max-width: 992px) {
-  .navbar {
-    display: none;
-  }
-}
-
-@media (max-width: 544px) {
-  .menu {
-    display: none;
-  }
-  .search {
-    display: none;
-  }
-  .logo {
-    margin: 0 auto;
-  }
-  .navbar-expand-lg {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
+.container-fluid #top-venta #contenedorc {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[4];
+      grid-template-columns: repeat(4, auto);
+  gap: 20px;
 }
 /*# sourceMappingURL=home.css.map */

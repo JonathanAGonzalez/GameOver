@@ -8,7 +8,6 @@ const methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
-var productRouter = require('./routes/product');
 var usersRouter = require('./routes/users');
 var productsdbRouter = require('./routes/productsdb');
 
@@ -27,7 +26,6 @@ app.use(session({secret:"Es un secreto"}));
 app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
-app.use('/products', productRouter);
 app.use('/admin', adminRouter);
 app.use('/addProduct', adminRouter);
 app.use('/editProduct', adminRouter);

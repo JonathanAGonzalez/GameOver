@@ -36,26 +36,19 @@ controller = {
     //res.send(nuevoProducto)
     products.push(nuevoProducto)
 
-    let productosModificadosJSON = JSON.stringify(products)
-    fs.writeFileSync(productsFilePath, productosModificadosJSON)
+ 
     res.redirect('/products')
   },
   editProduct: function (req, res, next) {
     res.render('editProduct', {
-      products: products,
-      logeadoUser: req.session.logged,
-      users:usersJSON,
+      
     });
   },
   detailEdit: (req, res, next) => {
-    var product = products.find(function(element) {
-      return element.id == req.params.id;
-        });
+    
 
     res.render('processEditProduct',{
-      producto:product,
-      logeadoUser: req.session.logged,
-      users:usersJSON,
+     
     })
   },
   processEdit: (req, res, next) => {
@@ -75,27 +68,20 @@ controller = {
 			}
 		})
 		
-		let productosModificadosJSON = JSON.stringify(products)
-		fs.writeFileSync(productsFilePath, productosModificadosJSON)
+	
 		
 		res.redirect("/products");
   },
   deleteProduct:(req,res,next)=>{
 
     res.render('deleteProduct',{
-      eliminando:products,
-      users:usersJSON,
+      
     })
     console.log(products)
   },
   deleteProcess:(req,res)=>{
     
-        let productsQueQuedan = products.filter(function(element) {
-          return element.id != req.params.id;
-        });
-        let productosModificadosJSON = JSON.stringify(productsQueQuedan)
-		fs.writeFileSync(productsFilePath, productosModificadosJSON)
-        res.redirect('/products')
+      
   }
 }
 

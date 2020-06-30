@@ -46,8 +46,7 @@ router.get('/perfilUser', usersController.perfilUser);
 router.post('/perfilUser', usersController.processPerfil);
 router.post('/perfilUser',upload.any(), usersController.processEditPerfil);
 
-//FAN ZONE
-router.get('/fanzone', usersController.fanZone)
+
 
 
 
