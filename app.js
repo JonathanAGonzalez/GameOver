@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session=require('express-session');
+var flash=require('connect-flash');
 const methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret:"Es un secreto"}));
+//app.use(flash());
 app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
@@ -32,6 +34,8 @@ app.use('/editProduct', adminRouter);
 app.use('/user', usersRouter);
 app.use('/productsdb', productsdbRouter);
 //app.use('/register', usersRouter);
+
+//creando un mensaje de registro con flash
 
 
 

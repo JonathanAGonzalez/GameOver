@@ -6,9 +6,6 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 
 
-
-
-
 controller = {
     //REGISTRO
     register: function(req, res, next) {
@@ -27,6 +24,7 @@ controller = {
                 password: bcrypt.hashSync(req.body.password, 10),
                 avatar: req.files[0].filename
             })
+        //req.flash('mensajeRegistro', 'Gracias por crear tu cuenta, ahora estás registrado en Game Over');
         }else{
             res.render('register',{
                 errors:errors.errors,
@@ -34,12 +32,6 @@ controller = {
         }
 
         res.redirect('/')
-
-
-
-
-
-
 
     },
     login: function(req, res, next) {
