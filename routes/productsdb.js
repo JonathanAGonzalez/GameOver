@@ -16,9 +16,9 @@ router.get("/:id", productsdbController.detalle);
 //Actualización
 router.get("/editar/:id", productsdbController.editar);
 router.post("/editar/:id", productsdbController.actualizar);
-/*
+
 //Borrado
 router.post("/borrar/:id", productsdbController.borrar);
-*/
+
 
 module.exports = router;

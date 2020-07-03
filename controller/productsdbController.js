@@ -42,7 +42,12 @@ let productsdbController = {
 
     //Listado
     listado: function(req,res) {
-        db.Game.findAll()
+        db.Game.findAll({
+            include: [
+                {association: "categories"}, 
+                {association: "distributors"}, 
+            ]
+        })
         .then(function(juegos) {
             res.render("DBProducts", {juegos:juegos})
         })
@@ -100,7 +105,6 @@ let productsdbController = {
         console.log(req.body);
         res.redirect("/productsdb/" + req.params.id);
     },
-/*
     //Borrado
     borrar: function(req,res){
         db.Game.destroy({
@@ -110,7 +114,6 @@ let productsdbController = {
         })
         res.redirect("/productsdb");
     }
-*/
 }
 
 module.exports = productsdbController;
