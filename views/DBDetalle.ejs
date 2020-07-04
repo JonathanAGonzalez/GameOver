@@ -28,11 +28,16 @@
         <ul>
           <li><strong class="section__strong">LANZAMIENTO:</strong> <%=juego.release_date%></li>
           <hr>
-          <li><strong class="section__strong">DESARROLLADOR:</strong> <%=juego.distributor_id%></li>
+          <li><strong class="section__strong">DESARROLLADOR:</strong> <%=juego.distributors.name%></li>
           <hr>
-          <li><strong class="section__strong">CATEGORÍA:</strong> <%=juego.category_id%></li>
+          <li><strong class="section__strong">CATEGORÍA:</strong> <%=juego.categories.name%></li>
           <hr>
-          <li><strong class="section__strong">PLATAFORMAS:</strong> <%=juego.platform%></li>
+          <li><strong class="section__strong">PLATAFORMAS:</strong></li>
+          <% for(let i = 0; i < juego.platforms.length; i++) { %>
+            <li style="list-style-type:none; display:inline">
+               <%=juego.platforms[i].name%> -
+            </li>
+          <% } %>
           <hr>
           <li><strong class="section__strong">RATING ESRB:</strong> <%=juego.age_clasification%></li>
           <hr>

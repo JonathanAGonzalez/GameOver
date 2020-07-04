@@ -24,9 +24,9 @@
                         <p class="card-text">
                           <strong>Fecha de estreno inicial: </strong> <%= juegos[i].release_date %>
                           <hr>
-                          <strong>Desarrollador: </strong><%= juegos[i].distributor_id %>
+                          <strong>Desarrollador: </strong><%= juegos[i].distributors.name %>
                           <hr>
-                          <strong>Categoría: </strong><%= juegos[i].category_id %>
+                          <strong>Categoría: </strong><%= juegos[i].categories.name %>
                           <hr>
                           </p>
                             <strong class="precio">

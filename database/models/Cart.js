@@ -18,7 +18,12 @@ module.exports = (sequelize,DataTypes) => {
         },
         total: {
             type: DataTypes.INTEGER
+<<<<<<< HEAD
         }
+=======
+        },
+
+>>>>>>> f0edb1964d7268d37d398e299bc95220bff9e9a0
     },
     {
         tableName: "carts",
@@ -38,6 +43,7 @@ Cart.belongsToMany(models.Game, {
     otherKey: "game_id",
     timestamps: false
 });
+}
 
 }
 return Cart;
