@@ -1,5 +1,7 @@
-module.exports = function(sequelize, dataTypes) {
-    cols = {
+module.exports = (sequelize,dataTypes) => {
+    const User = sequelize.define("User",
+
+        {
             id: {
                 type: dataTypes.INTEGER,
                 autoIncrement: true,
@@ -21,10 +23,9 @@ module.exports = function(sequelize, dataTypes) {
                 type: dataTypes.STRING
             }
         },
-        config = {
+        {
             tableName: 'users',
             timestamps: false
-        }
-    const user = sequelize.define("users", cols, config);
-    return user;
+        });
+    return User;
 }
