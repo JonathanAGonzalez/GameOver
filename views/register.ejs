@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include('./partials/head') %>
+  <%- include('./partials/head') %>
 
-<body>
+  <body>
     <div class="container-fluid">
-        <%- include('./partials/header') %>
-        <%- include('./partials/navbar') %>
-
-        <div class="container">
+      <%- include('./partials/header') %> <%- include('./partials/navbar') %>
+      <div class="row">
+        
+        <div class="container-fluid">
           
-          <form class="col-11 col-md-8 col-lg-5 mb-4 mt-4" id="formulario" action="/user/register" method="POST" enctype="multipart/form-data">
-            
+          <div class="formulario-contenedor">
             <% if (typeof errors !="undefined")  { %>
               <div class="errors">
                 <p>❗Se encontraron los siguientes errores:</p>
@@ -22,52 +21,57 @@
                     <% } %>
                   </ul>
                 </div>
-                <% } %>
-                <h2 class="col-12 text-center">REGISTRO</h2>
-                <div class="name">
-                  <label for="first_name">Nombre: </label>
-                  <i class="user">👤</i>
-                  <input type="text" name="first_name" placeholder="Ingresa tu nombre" class="col-12 input-r">
-                </div>
-                <div class="apellido">
-                  <label for="last_name">Apellido: </label>
-                  <i class="user2">👤</i>
-                  <input type="text" name="last_name" placeholder="Ingresa tu apellido" class="col-12 input-r">
-                </div>
-                <div class="emaill">
-                  <label for="email">Email: </label>
-                  <i class="email-ico">📧</i>
-                  <input type="email" name="email" placeholder="ingresa tu email" class="col-12 input-r">
-                </div>
-               <div class="pass">
-                 <label for="password">Contraseña: </label>
-                 <i class="pass-ico">🔑</i>
-                 <input type="password" name="password" placeholder="Ingresa tu contraseña" class="col-12 input-r">
-               </div>
-               <div class="pass">
-                 <label for="password2">Repetir contraseña: </label>
-                 <i class="pass-ico">🔑</i>
-                 <input type="password" name="password2" placeholder="Repetir tu contraseña" class="col-12 input-r">
-               </div>
-                <label for="avatar">Avatar:</label>
-                <input class="form-control col-12" type="file" name="avatar" placeholder="" class="col-4 input-r">
-                <div class="enviar col-9">
-                  <button class="btn btn-success mt-4" type="submit">REGISTRARME</button>
-                </div>
                 
-              </form>
+                <% } %>
+                
+            <form  action="/user/register" method="POST" enctype="multipart/form-data">
+              <div class="grupo" >
+                <h3 class="h2">REGISTRO</h3>
+              </div>
+              <div class="grupo">
+                <input type="text" name="first_name" required>
+                <label for="first_name" >NOMBRE</label>
+              </div>
+              <div class="grupo">
+                <input type="text" name="last_name" required>
+                <label for="last_name" >APELLIDO</label>
+              </div>
+              <div class="grupo">
+                <input type="email" name="email" required>
+                <label for="email" >EMAIL</label>
+              </div>
+              <div class="grupo">
+                <input type="password" name="password" required>
+                <label for="password" >CONTRASEÑA</label>
+              </div>
+              <div class="grupo">
+                <input type="password" name="password2" required>
+                <label for="password2" >REP CONTRASEÑA</label>
+              </div>
+              <div class="grupo">
+                <input type="file" name="avatar" class="file">
+                <label for="avatar" >AVATAR</label>
+              </div>
+              <div class="enviar">
+                <button type="submit">ENVIAR</button>
+              </div>
               
-              
-              
-            </div>
-              
-              <%- include('./partials/footer') %>
-              
-            </div>
-            
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.slim.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-          </body>
+            </form>
+          </div>
           
-          </html>
+        </div>
+        
+      </div>
+
+      </div>
+      
+      
+      
+      <%- include('./partials/footer') %>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

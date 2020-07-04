@@ -1,71 +1,85 @@
 const fs = require('fs');
 const path = require('path');
 const { check, validationResult, body } = require('express-validator');
+
 const bcrypt = require('bcryptjs');
+const saltRounds = 10 ;   
+const myPlaintextPassword = ' s0 / \ / \ P 4 $$ w0rD ' ;   
+const someOtherPlaintextPassword = ' not_bacon ' ;  
+
+
+
 const db = require('../database/models');
+const { log } = require('console');
 const sequelize = db.sequelize;
+
+
+
 
 
 controller = {
     //REGISTRO
     register: function(req, res, next) {
+        
         res.render('register', {
-            logeadoUser: req.session.logged
+            userLogged: req.session.logged
         });
     },
     //REGISTRO PROCESO
     createUser: function(req, res, next) {
         const errors = validationResult(req)
-        if(errors.isEmpty()){
+        if (errors.isEmpty()){
             db.users.create({
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
                 email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
+                password: req.body.password,
                 avatar: req.files[0].filename
             })
-        //req.flash('mensajeRegistro', 'Gracias por crear tu cuenta, ahora estás registrado en Game Over');
+            return res.redirect('/')
         }else{
-            res.render('register',{
-                errors:errors.errors,
+            return res.render('crear',{
+                errors:errors.errors
             })
         }
-
-        res.redirect('/')
-
     },
     login: function(req, res, next) {
         res.render('login', {
-            logeadoUser: req.session.logged,
+            userLogged: req.session.logged,
         });
     },
-    processLogin: function(req, res, next) {        
-        var errors = validationResult(req);
-        db.users.findAll()
-            .then((result) => {
-                if (errors.isEmpty()) {
-                    result.forEach(element => {
-                        if (req.body.email == element.email && bcrypt.compareSync(req.body.password, element.password, 10)) {
-                            req.session.logged = element.email;
-                            var usuarioLogeado = req.session.logged;
-                        }
-                    })
-                    res.render('index', {
-                        usuarios: result,
-                        usuarioLogeado: req.session.logged
-                    })
-                } else {
-                    return res.render('login', {
-                        errors: errors.errors
-                    })
-                }
+    processLogin: function(req, res, next) {
+
+        let errors = validationResult(req); 
+
+        db.users.findOne({
+            where:{
+                email:req.body.email
+            }
+        })
+        .then(user =>{
+            /* NO FUNCIONA EL BCRYPT */
+            /* if(bcrypt.compareSync(req.body.password,user.password)){
+                console.log('hola')
+            }else{
+                console.log('chau')
+            } */
+            /* NO FUNCIONA EL BCRYPT */
+
+            if(req.body.password == user.password){
+                console.log('simple')
+            }else{
+                console.log('no va')
+            }
 
 
-            }).catch((err) => {
-                console.log(err)
-            });
+        })
 
-        
+        .catch(err=>{
+            console.log(err)
+        })
+
+
     },
     logout: function(req, res, next) {
         req.session.destroy()
@@ -74,21 +88,18 @@ controller = {
     perfilUser: (req, res, next) => {
 
 
-        res.render('perfilUser', {
-            users: usersJSON,
-            logeadoUser: req.session.logged
-        })
+        res.render('perfilUser')
 
     },
     processPerfil: (req, res, next) => {
         let usuarioPerfil = usersJSON.find(function(element) {
-            return element.email == logeadoUser
+            return element.email == userLogged
         });
         console.log(usuarioPerfil)
     },
     processEditPerfil: (req, res, next) => {
         res.send('Editado', {
-            logeadoUser: req.session.logged
+            userLogged: req.session.logged
 
         })
     },

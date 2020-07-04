@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session=require('express-session');
-var flash=require('connect-flash');
+//var flash=require('connect-flash');
 const methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');

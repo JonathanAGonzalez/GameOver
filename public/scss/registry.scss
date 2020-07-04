@@ -1,95 +1,97 @@
-
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-    background-image: url('../images/fanzone1.jpg');
-    background-size: cover;  
-    .name{
-        position: relative;
-        width: 100%;
-
-        .user{
-            color: red;
-            position: absolute;
-            bottom: 10px;
-            left: 5px;
-            z-index: 1;
-
-        }
+.formulario-contenedor{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+  font-family: 'Baloo Paaji 2';
+  background: #f2f2f2;
+  form{
+    background: #ffffff;
+    padding: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px black;
+  }
+  .grupo{
+    position: relative;
+    padding: 10px;
+    
+    label{
+      position: absolute;
+      top: 15px;
+      left: 19px;
+      transition: ease-in-out 0.3s;
+      pointer-events: none;
     }
-    .apellido{
-        position: relative;
-        width: 100%;
+    input{
+      padding: 10px;
+      width: 100%;
+      background: none;
+      border:none;
+      border-bottom: 1px solid #ff000073;
+      &:focus~label,&:valid~label{
+        font-size: 13px;
+        top: 0;
+        color: green;
+        border: none;
+      }
+    }
+    .file{
+      width: 180px;
+      border: none;
+    }
+  }
+}
+input:focus, input.form-control:focus {
 
-        .user2{
-            position: absolute;
-            bottom: 10px;
-            left: 5px;
-            z-index: 1;
-
-        }
-    }
-    .emaill{
-        position: relative;
-        width: 100%;
-        .email-ico{
-            position: absolute;
-            bottom: 10px;
-            left: 2px;
-            z-index: 1;
-        }
-    }
-    .pass{
-        position: relative;
-        width: 100%;
-        .pass-ico{
-            position: absolute;
-            bottom: 10px;
-            left: 2px;
-            z-index: 1;
-        }
-    }
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
 }
 
-#formulario{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: start;
-    flex-wrap: wrap;
-    .errors{
-        background: rgba(255, 0, 0, 0.452);
-        border-radius: 5px;
-        padding:20px;
-        ul{
-            li{
-                list-style: none;
-            }
-        }
-        p{
-            font-weight: bold;
-            font-size: 20px;
-        }
+#formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: start;
+  flex-wrap: wrap;
+  .errors {
+    background: #ff000073;
+    border-radius: 5px;
+    padding: 20px;
+    ul {
+      li {
+        list-style: none;
+      }
     }
-    label{
-        margin:20px;
+    p {
+      font-weight: bold;
+      font-size: 20px;
     }
-    .input-r{
-       padding: 10px;
-       padding-left: 30px;
-       background:none;
-       border: none;
-       border-bottom: 2px solid red;
-       background: #a69e9e5e;
-       &:focus{
-           color: green;
-       }
-       &:required{
-           border: 2px solid green;
-       }
+  }
+  label {
+    margin: 20px;
+  }
+  .input-r {
+    padding: 10px;
+    padding-left: 30px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid red;
+    background: #a69e9e5e;
+    &:focus {
+      color: green;
+      outline: none;
     }
+    &:required {
+      border: 2px solid green;
+    }
+  }
 }
