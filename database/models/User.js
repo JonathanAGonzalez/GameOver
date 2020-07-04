@@ -1,6 +1,4 @@
 module.exports = function(sequelize, dataTypes) {
-
-
     cols = {
             id: {
                 type: dataTypes.INTEGER,
@@ -27,9 +25,6 @@ module.exports = function(sequelize, dataTypes) {
             tableName: 'users',
             timestamps: false
         }
-
-
     const user = sequelize.define("users", cols, config);
     return user;
-
 }
