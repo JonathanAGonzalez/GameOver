@@ -19,7 +19,6 @@ module.exports = (sequelize,DataTypes) => {
         total: {
             type: DataTypes.INTEGER
         }
-
     },
     {
         tableName: "carts",
@@ -40,8 +39,8 @@ Cart.belongsToMany(models.Game, {
     timestamps: false
 });
 }
-
-
 return Cart;
-
 }
+
+
+
