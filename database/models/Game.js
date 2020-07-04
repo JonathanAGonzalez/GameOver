@@ -61,6 +61,8 @@ module.exports = (sequelize,DataTypes) => {
             foreignKey: "category_id"
         });
 
+        
+
         Game.belongsTo(models.Distributor, {
             as: "distributors",
             foreignKey: "distributor_id"
@@ -80,6 +82,13 @@ module.exports = (sequelize,DataTypes) => {
                 otherKey: "platform_id",
                 timestamps: false
         });
+        Game.belongsToMany(models.Cart, {
+                as: "cart",
+                through: "cart_game",
+                foreignKey: "game_id",
+                otherKey: "cart_id",
+                timestamps: false
+});
         }
 
     return Game;

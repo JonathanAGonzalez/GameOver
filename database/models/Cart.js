@@ -13,34 +13,33 @@ module.exports = (sequelize,DataTypes) => {
         date: {
             type: DataTypes.DATE
         },
-        users_id: {
+        user_id: {
             type: DataTypes.INTEGER
         },
         total: {
             type: DataTypes.INTEGER
         }
-
     },
-    
     {
         tableName: "carts",
         timestamps: false
     });
-}
+
 Cart.associate = function(models) {
     Cart.belongsTo(models.User, {
         as: "users",
-        foreignKey: "users_id"
+        foreignKey: "user_id"
     });
 
 Cart.belongsToMany(models.Game, {
-        as: "games",
-        through: "cart_game",
-        foreignKey: "cart_id",
-        otherKey: "game_id",
-        timestamps: false
+    as: "games",
+    through: "cart_game",
+    foreignKey: "cart_id",
+    otherKey: "game_id",
+    timestamps: false
 });
 
+}
 return Cart;
 
 }
