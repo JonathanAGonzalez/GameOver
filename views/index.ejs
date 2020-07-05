@@ -37,12 +37,11 @@
         <section class="row justify-content-around">
           <!-- TITTLE PRODUCT -->
           <div class="titulo-product col-12">
-
-            
-
-
+          
             <h5 class="estilo-fuente-1">🎮JUEGOS  <mark class="estilo-fuente-2">RECOMENDADOS</mark></h5>
-           
+          <% if (typeof user !="undefined") { %>
+           <%= user.first_name %> 
+          <% } %>
             <hr>
           </div>
           <!--CAJA RECOMENDADOS-->

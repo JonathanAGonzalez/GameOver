@@ -12,7 +12,7 @@
            <div class="formulario-contenedor">
             <% if (typeof errors !="undefined")  { %>
               <div class="errors">
-                <p>❗Se encontraron los siguientes errores:</p>
+                <p>❗Verificar contraseña o email❗</p>
                 <ul>
                   <% for(let i = 0; i < errors.length; i++) { %>
                     <li>
@@ -25,17 +25,21 @@
                 <% } %>
                 
             <form  action="/user/login"  method="POST">
+              
               <div class="grupo" >
                 <h3 class="h2">LOGIN</h3>
               </div>
+
               <div class="grupo">
                 <input type="email" name="email" required>
                 <label for="email" >EMAIL</label>
               </div>
+
               <div class="grupo">
                 <input type="password" name="password" required>
                 <label for="password" >CONTRASEÑA</label>
               </div>
+
               
               <div class="enviar">
                 <button type="submit">ENVIAR</button>
