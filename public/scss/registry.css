@@ -1,70 +1,75 @@
-.container {
+.formulario-contenedor {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  background-image: url("../images/fanzone1.jpg");
-  background-size: cover;
+  height: 80vh;
+  text-align: center;
+  font-family: 'Baloo Paaji 2';
+  background: #f2f2f2;
 }
 
-.container .name {
+.formulario-contenedor form {
+  background: #ffffff;
+  padding: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 5px black;
+          box-shadow: 0px 0px 5px black;
+}
+
+.formulario-contenedor .grupo {
   position: relative;
-  width: 100%;
+  padding: 10px;
 }
 
-.container .name .user {
-  color: red;
+.formulario-contenedor .grupo label {
   position: absolute;
-  bottom: 10px;
-  left: 5px;
-  z-index: 1;
+  top: 15px;
+  left: 19px;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
+  pointer-events: none;
 }
 
-.container .apellido {
-  position: relative;
+.formulario-contenedor .grupo input {
+  padding: 10px;
   width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #ff000073;
 }
 
-.container .apellido .user2 {
-  position: absolute;
-  bottom: 10px;
-  left: 5px;
-  z-index: 1;
+.formulario-contenedor .grupo input:focus ~ label, .formulario-contenedor .grupo input:valid ~ label {
+  font-size: 13px;
+  top: 0;
+  color: green;
+  border: none;
 }
 
-.container .emaill {
-  position: relative;
-  width: 100%;
+.formulario-contenedor .grupo .file {
+  width: 180px;
+  border: none;
 }
 
-.container .emaill .email-ico {
-  position: absolute;
-  bottom: 10px;
-  left: 2px;
-  z-index: 1;
-}
-
-.container .pass {
-  position: relative;
-  width: 100%;
-}
-
-.container .pass .pass-ico {
-  position: absolute;
-  bottom: 10px;
-  left: 2px;
-  z-index: 1;
+input:focus, input.form-control:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
 }
 
 #formulario {
@@ -87,7 +92,7 @@
 }
 
 #formulario .errors {
-  background: rgba(255, 0, 0, 0.452);
+  background: #ff000073;
   border-radius: 5px;
   padding: 20px;
 }
@@ -116,6 +121,7 @@
 
 #formulario .input-r:focus {
   color: green;
+  outline: none;
 }
 
 #formulario .input-r:required {

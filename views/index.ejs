@@ -4,23 +4,11 @@
 <%- include('./partials/head') %> 
 
 <body>
- 
-  
     <div class="container-fluid">
       <!-- HEADER -->
       <%- include('./partials/header') %>
         <!-- MENU DE ESCRITORIO -->
         <%- include('./partials/navbar')%> 
-        <!--MENSAJE DE REGISTRO-->
-        <% /* %><div class="registro row">
-          <div class col-12>
-            <% if (typeof mensajeRegistro != undefined) { %>
-            <div class="alert alert-success" role="alert">
-              <%= mensajeRegistro %> 
-            </div>
-            <% } %>
-          </div>
-        </div> <% */ %> 
         <!-- CARROUSEL -->
         <div class="carrousel row">
             <div id="carouselExampleControls" class="carousel slide col-12" data-ride="carousel">
@@ -49,7 +37,11 @@
         <section class="row justify-content-around">
           <!-- TITTLE PRODUCT -->
           <div class="titulo-product col-12">
+          
             <h5 class="estilo-fuente-1">🎮JUEGOS  <mark class="estilo-fuente-2">RECOMENDADOS</mark></h5>
+          <% if (typeof user !="undefined") { %>
+           <%= user.first_name %> 
+          <% } %>
             <hr>
           </div>
           <!--CAJA RECOMENDADOS-->
@@ -77,7 +69,6 @@
             </div>
             <% } %> 
           <!--CAJA RECOMENDADOS FINAL-->
-
           <!-- TOP VENTAS -->
           <div class="row justify-content-around" id="top-venta">
             <!-- TITTLE PRODUCT -->
@@ -116,9 +107,7 @@
             <h5 class="estilo-fuente-1">🏴‍☠️OFERTAS <mark class="estilo-fuente-2">SEMANALES</mark></h5>
             <hr>
           </div>
-
           <!--CAJA 1-->
-      
           <% ofertas.forEach(oferta => { %>
             <div class="card col-dm-3 mb-3" style="width: 18rem;">
               <img class="card-img-top" src="/images/product-games/<%= oferta.image %>  " alt="Card image cap">
@@ -131,10 +120,8 @@
                       <hr>
                       <strong>Desarrollador: <%= element.name %></strong>
                       <hr>
-                      
                       <% } %>
                     <%});%>
-                      
                   </p>
                     <strong class="precio">$<%= oferta.price %></strong>
                     <hr>
@@ -142,15 +129,8 @@
               </div>
             </div>
           <% }) %>
-           
-
-
-
-
-            
         </section>
         <%- include('./partials/footer') %> 
-
     </div>
     <script src="/javascript/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>

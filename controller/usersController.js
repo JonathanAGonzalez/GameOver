@@ -1,97 +1,108 @@
 const fs = require('fs');
 const path = require('path');
 const { check, validationResult, body } = require('express-validator');
+
 const bcrypt = require('bcryptjs');
+const saltRounds = 10 ;   
+const myPlaintextPassword = ' s0 / \ / \ P 4 $$ w0rD ' ;   
+const someOtherPlaintextPassword = ' not_bacon ' ;  
+
+
+
 const db = require('../database/models');
+const { log } = require('console');
 const sequelize = db.sequelize;
+
+
+
 
 
 controller = {
     //REGISTRO
-    register: function(req, res, next) {
+    register: function(req, res, next) {  
         res.render('register', {
-            logeadoUser: req.session.logged
+            userLogged: req.session.logged
         });
     },
     //REGISTRO PROCESO
     createUser: function(req, res, next) {
         const errors = validationResult(req)
-        if(errors.isEmpty()){
-            db.users.create({
+        if (errors.isEmpty()){
+            db.User.create({
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
                 email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
+                password: req.body.password,
                 avatar: req.files[0].filename
             })
-        //req.flash('mensajeRegistro', 'Gracias por crear tu cuenta, ahora estás registrado en Game Over');
+            return res.redirect('/')
         }else{
-            res.render('register',{
-                errors:errors.errors,
+            return res.render('register',{
+                errors:errors.errors
             })
         }
-
-        res.redirect('/')
-
     },
+    //LOGIN
     login: function(req, res, next) {
-        res.render('login', {
-            logeadoUser: req.session.logged,
-        });
+        res.render('login');
     },
-    processLogin: function(req, res, next) {        
-        var errors = validationResult(req);
-        db.users.findAll()
-            .then((result) => {
-                if (errors.isEmpty()) {
-                    result.forEach(element => {
-                        if (req.body.email == element.email && bcrypt.compareSync(req.body.password, element.password, 10)) {
-                            req.session.logged = element.email;
-                            var usuarioLogeado = req.session.logged;
-                        }
-                    })
-                    res.render('index', {
-                        usuarios: result,
-                        usuarioLogeado: req.session.logged
-                    })
-                } else {
-                    return res.render('login', {
-                        errors: errors.errors
-                    })
-                }
+    //LOGIN PROCESO
+    processLogin: function(req, res, next) {
 
+        let errors = validationResult(req)
 
-            }).catch((err) => {
-                console.log(err)
-            });
+        if (errors.isEmpty()) {
+          db.User.findOne({ where: { email: req.body.email } })
+            .then(user => {
+              
+              if (req.body.password == user.password) {
+                req.session.user = user;
+                var userLogged = req.session.user;
+                console.log(userLogged.email)
+                res.locals.user = req.session.user;
+                res.cookie('UsuarioCookie',userLogged.email,{maxAge: 6000})
+                res.redirect("/");
+              } else {
+                res.render("login", {
+                    errors: errors.errors
+                });
+              }
+            })
 
-        
+            .catch(function(error){
+              console.log(error)
+            })
+        } else {
+          res.render("login", { errors: errors.errors })
+        }
+      
     },
+    //LOGOUT
     logout: function(req, res, next) {
         req.session.destroy()
+        res.clearCookie()
         res.redirect('/')
     },
+    //PERFIL USER
     perfilUser: (req, res, next) => {
-
-
-        res.render('perfilUser', {
-            users: usersJSON,
-            logeadoUser: req.session.logged
-        })
-
+        res.render('perfilUser');
     },
     processPerfil: (req, res, next) => {
-        let usuarioPerfil = usersJSON.find(function(element) {
-            return element.email == logeadoUser
-        });
-        console.log(usuarioPerfil)
+        
     },
     processEditPerfil: (req, res, next) => {
-        res.send('Editado', {
-            logeadoUser: req.session.logged
-
-        })
-    },
+        db.User.update({
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            password: req.body.password,
+            avatar: req.files[0].filename
+        },{
+            where: {
+                email: req.body.email
+            }
+        });
+        res.redirect("/");
+    }
 }
 
 module.exports = controller;
