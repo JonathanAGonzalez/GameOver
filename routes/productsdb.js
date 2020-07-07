@@ -8,7 +8,7 @@ router.get("/crear", productsdbController.crear);
 router.post("/crear", productsdbController.guardado);
 
 //Lectura
-router.get("/DBProducts", productsdbController.listado);
+router.get("/", productsdbController.listado);
 
 //Detalle
 router.get("/:id", productsdbController.detalle);

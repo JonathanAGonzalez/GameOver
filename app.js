@@ -32,7 +32,7 @@ app.use('/admin', adminRouter);
 app.use('/addProduct', adminRouter);
 app.use('/editProduct', adminRouter);
 app.use('/user', usersRouter);
-app.use('/productsdb', productsdbRouter);
+app.use('/products', productsdbRouter);
 //app.use('/register', usersRouter);
 //creando un mensaje de registro con flash
 
