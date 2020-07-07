@@ -8,7 +8,7 @@ const sequelize = db.sequelize;
 
 controller ={
     index: function(req, res, next) {
-
+      const resultSearch =[];
       db.Game.findAll({where:{
         section_id:1
       }})
@@ -33,7 +33,38 @@ controller ={
                 section_id:2
               }})
               .then(ofertas =>{
-                res.render('index',{recomendados,distributor,plataformas,vendidos,ofertas})
+
+                db.Game.findAll()
+
+                .then((games) => {
+                  games.forEach(juego => {
+                    const gameFind = juego.name.toLowerCase();
+                    console.log(gameFind)
+                    if(gameFind.includes(req.query.search)){
+                      resultSearch.push(juego)
+                      console.log(resultSearch)
+                    }                  
+                  });
+                 /* const juego = games.find(element =>{
+                  return  element.name == req.query.search
+                 }) */
+                
+                 res.render('index',{recomendados,distributor,plataformas,vendidos,ofertas,resultSearch})
+
+                 /*
+                  games.forEach(element => {
+                    
+                     if(element.name.includes(req.query.search)){
+                    
+
+                      resultSearch.push(element.name)
+                      console.log('AAAAAAAAACAAAAAAAAAAAAAAAAAA' + resultSearch)
+                      console.log(resultSearch)
+                    } 
+                  });
+                  
+*/
+                })
               })
 
            

@@ -45,13 +45,79 @@
 
 .container-fluid header .lupa {
   color: #fff;
-  -webkit-transition: ease-in-out 0.6s;
-  transition: ease-in-out 0.6s;
+  -webkit-transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
 }
 
 .container-fluid header .lupa:hover {
   background: #FFFFFF;
   color: #000000;
+}
+
+.container-fluid header .gamefound {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  height: 40vh;
+  overflow-y: scroll;
+  scrollbar-color: 1px red;
+  scrollbar-width: thin;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 3px black;
+          box-shadow: 0px 0px 3px black;
+}
+
+.container-fluid header .gamefound .active {
+  display: none;
+}
+
+.container-fluid header .gamefound::-webkit-scrollbar {
+  display: none;
+  /* Ocultar scroll */
+}
+
+.container-fluid header .gamefound::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.container-fluid header .gamefound img {
+  width: 150px;
+}
+
+.container-fluid header form .search {
+  background: #ffffff;
+  padding: 10px;
+  width: 50%;
+  border: none;
+  border-bottom: 1px solid white;
+  color: red;
+  border-radius: 5px;
+}
+
+.container-fluid header form button {
+  top: 10px;
+  left: 270px;
+  border: none;
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.container-fluid header form button .fa-search {
+  color: red;
 }
 
 .container-fluid .carousel {
@@ -60,12 +126,12 @@
 }
 
 .container-fluid .titulo-product {
-  margin: 30px 0px;
+  margin: 5px 0px;
   font-family: "Baloo Paaji 2", cursive;
 }
 
 .container-fluid .titulo-product .estilo-fuente-1 {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   color: #c9ff07;
 }
