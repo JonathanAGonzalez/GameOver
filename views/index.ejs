@@ -39,9 +39,6 @@
           <div class="titulo-product col-12">
           
             <h5 class="estilo-fuente-1">🎮JUEGOS  <mark class="estilo-fuente-2">RECOMENDADOS</mark></h5>
-          <% if (typeof user !="undefined") { %>
-           <%= user.first_name %> 
-          <% } %>
             <hr>
           </div>
           <!--CAJA RECOMENDADOS-->
@@ -64,7 +61,7 @@
                   </p>
                     <strong class="precio">$<%= recomendados[i].price %></strong>
                     <hr>
-                <a href="/products/detail/" class="btn btn-primary offset-4">Comprar</a>
+                <button onclick="clickear(<%= recomendados[i].id %>)" class="btn btn-primary offset-4">Comprar</a>
               </div>
             </div>
             <% } %> 
@@ -96,7 +93,7 @@
                     </p>
                     <strong class="precio">$<%= masComprados.price %> </strong>
                     <hr>
-                    <a href="/products/detail/" class="btn btn-primary offset-4">Comprar</a>
+                    <button onclick="clickear(<%= masComprados.id %>)" class="btn btn-primary offset-4">Comprar</a>
                   </div>
                 </div>
                 <% }) %>
@@ -125,7 +122,7 @@
                   </p>
                     <strong class="precio">$<%= oferta.price %></strong>
                     <hr>
-                <a href="/products/detail/" class="btn btn-primary offset-4">Comprar</a>
+                <button onclick="clickear(<%= oferta.id %>)" class="btn btn-primary offset-4">Comprar</a>
               </div>
             </div>
           <% }) %>
@@ -136,6 +133,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+      function clickear(element){
+        if(userLoggedFront){
+          window.location.href = "/cart/add/" + element;
+        }else{
+          alert("Registrate para seguir comprando")
+        }
+        console.log(element)
+        console.log(userLoggedFront)
+      }
+    </script>
 </body>
 
 </html>

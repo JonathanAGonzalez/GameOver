@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
 var productsdbRouter = require('./routes/productsdb');
+var cartRouter = require('./routes/cart');
 var app = express();
 
 // view engine setup
@@ -33,6 +34,7 @@ app.use('/addProduct', adminRouter);
 app.use('/editProduct', adminRouter);
 app.use('/user', usersRouter);
 app.use('/productsdb', productsdbRouter);
+app.use('/cart', cartRouter);
 //app.use('/register', usersRouter);
 //creando un mensaje de registro con flash
 
