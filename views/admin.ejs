@@ -5,76 +5,64 @@
       <div class="container-fluid">
           
         <!--HEADER-->
-          <%- include('./partials/header')  %>
-        <!--NAV MENU-->
-        <nav class="row">
-            <nav class="menu col-12 d-none d-sm-block">
-                <ul>
-                    <li><a href="/">Home</a></li><span class="border-right"></span>
-                    <li><a href="">Estadisticas</a>
-                    </li><span class="border-right"></span>
-                    <li><a href="">FanZone</a></li><span class="border-right"></span>
-                    <li><a href="">Email</a></li><span class="border-right"></span>
-                    <li><a href="/user/logout">Deslogear</a></li>
-                </ul>
-            </nav>
-        
-            <!--RESPONSIVE -->
-            <nav class="mobile row col-12 align-self-center">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                  
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item active">
-                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">Estadisticas</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">FanZone</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Email</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Deslog</a>
-                          </li>
-                      </ul>
-                      <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-                      </form>
-                    </div>
-                  </nav>
-            </nav>
-        </nav>
+        <%- include('./partials/header')  %>
+   
         <!--INICIO-->
             <div class="row">
-                <div class="main_agregar col-5">
-                    <p class="h4 scol-12"> AGREGAR</p>
-                        <img src="/images/admin/agregar.png" alt="" style="width: 80px;">
-                        <a href="/admin/addproduct"><button type="button" class="btn btn-outline-success">Agregar</button></a>
-                    </div>
-                    
-                    <div class="main_borrar  col-5">
-                    <p class="h4 scol-12"> ELIMINAR</p>
-                      <img src="/images/admin/borrar.png" alt="" style="width: 80px;"> 
-                  <a href="/admin/deleteProduct"> <button type="button"
-                      class="btn btn-outline-danger">Eliminar</button></a>
-                  </div>
-                  <div class="main_editar  col-2">
-                    <p class="h4 scol-12"> EDITAR</p>
-                      <img src="/images/admin/modificar.png" style="width: 80px;" alt="" class="img-fluid">
-                     <a href="/admin/editProduct"><button type="button" class="btn btn-outline-info">EDITAR</button></a> 
-                  </div>
+              <div class="col-4">
+                <h1>PRODUCTOS</h1>
+                <p class="h4"> AGREGAR</p>
+                <img src="/images/admin/agregar.png" alt="" style="width: 80px;">
+                <a href="/products/crear"><button type="button" class="btn btn-outline-success">Agregar</button></a>
+              </div>
+              <div class="col-4">
+                <p class="h4"> ELIMINAR</p>
+                <img src="/images/admin/borrar.png" alt="" style="width: 80px;"> 
+                <a href="/products/borrar"> <button type="button"
+                class="btn btn-outline-danger">Eliminar</button></a>
+              </div>
+              <div class="col-4">
+                <p class="h4"> EDITAR</p>
+                <img src="/images/admin/modificar.png" style="width: 80px;" alt="" class="img-fluid">
+                <a href="/admin/editProduct"><button type="button" class="btn btn-outline-info">Editar</button></a> 
+              </div>
             </div>
+            <div class="row">
+              <div class="col-4">
+                  <h1>USUARIOS</h1>
+                  <p class="h4"> LISTAR</p>
+                  <img src="/images/admin/agregar.png" alt="" style="width: 80px;">
+                  <a href="/admin/addproduct"><button type="button" class="btn btn-outline-success">Listar</button></a>
+              </div>
+              <div class="col-4">
+                <p class="h4"> EDITAR</p>
+                <img src="/images/admin/borrar.png" alt="" style="width: 80px;"> 
+                <a href="/admin/deleteProduct"> <button type="button"
+                class="btn btn-outline-danger">Editar</button></a>
+              </div>
+              <div class="col-4">
+                <p class="h4"> ELIMINAR</p>
+                <img src="/images/admin/modificar.png" style="width: 80px;" alt="" class="img-fluid">
+                <a href="/admin/editProduct"><button type="button" class="btn btn-outline-info">Elimar</button></a> 
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+              <h1>CARRITOS</h1>
+              <p class="h4"> LISTAR</p>
+              <img src="/images/admin/agregar.png" alt="" style="width: 80px;">
+              <a href="/admin/addproduct"><button type="button" class="btn btn-outline-success">Listar</button></a>
+              </div>
+              <div class="col-4">
+              <p class="h4"> ELIMINAR</p>
+              <img src="/images/admin/borrar.png" alt="" style="width: 80px;"> 
+              <a href="/admin/deleteProduct"> <button type="button"
+                class="btn btn-outline-danger">Eliminar</button></a>
+              </div>
+            </div>
+            <%- include('./partials/footer') %>
+        </div>
 
-          <%- include('./partials/footer') %>
-      </div>
     <!--Optional JavaScript-->
     <!--jQuery first, then Popper.js, then Bootstrap JS-->
     <script

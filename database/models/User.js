@@ -21,6 +21,9 @@ module.exports = (sequelize,dataTypes) => {
             },
             avatar: {
                 type: dataTypes.STRING
+            },
+            state: {
+                type: dataTypes.STRING
             }
         },
         {
