@@ -104,11 +104,7 @@ let productsdbController = {
             }
         });
         console.log(req.body);
-<<<<<<< HEAD
         res.redirect("/admin/editproducts");
-=======
-        res.redirect("/products/" + req.params.id);
->>>>>>> c151fed292b50c480f3301e864b6bf91f7ce8140
     },
     //Borrado
     borrar: function(req,res){
@@ -131,13 +127,8 @@ let productsdbController = {
             where: {
                 id: req.params.id
             }
-<<<<<<< HEAD
         });
         res.redirect("/admin/borrar"); 
-=======
-        })
-        res.redirect("/products/");
->>>>>>> c151fed292b50c480f3301e864b6bf91f7ce8140
     }
 }
 
