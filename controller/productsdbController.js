@@ -21,12 +21,12 @@ let productsdbController = {
     },
 
     //Guardado
-    guardado: function(req, res) {
+    guardado: function(req, res, next) {
         db.Game.create({
             name: req.body.name,
             logo: req.body.logo,
             description: req.body.description,
-            image: req.body.image,
+            image: req.files[0].filename,
             video: req.body.video,
             discount: req.body.discount,
             release_date: req.body.release_date,
@@ -37,7 +37,7 @@ let productsdbController = {
             section_id: req.body.section_id,
         });
         console.log(req.body);
-        res.redirect("/DBProducts");
+        res.redirect("/products");
     },
 
     //Listado
@@ -103,7 +103,7 @@ let productsdbController = {
             }
         });
         console.log(req.body);
-        res.redirect("/productsdb/" + req.params.id);
+        res.redirect("/products/" + req.params.id);
     },
     //Borrado
     borrar: function(req,res){
@@ -112,7 +112,7 @@ let productsdbController = {
                 id: req.params.id
             }
         })
-        res.redirect("/productsdb");
+        res.redirect("/products/");
     }
 }
 
