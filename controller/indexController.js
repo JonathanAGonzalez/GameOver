@@ -32,6 +32,7 @@ controller ={
               db.Game.findAll({where:{
                 section_id:2
               }})
+<<<<<<< HEAD
               .then(ofertas =>{
 
                 db.Game.findAll()
@@ -64,6 +65,11 @@ controller ={
                   
 */
                 })
+=======
+              
+              .then(ofertas =>{     
+                res.render('index',{recomendados,distributor,plataformas,vendidos,ofertas})
+>>>>>>> c151fed292b50c480f3301e864b6bf91f7ce8140
               })
 
            
