@@ -37,7 +37,7 @@ let productsdbController = {
             section_id: req.body.section_id,
         });
         console.log(req.body);
-        res.redirect("/DBProducts");
+        res.redirect("/products");
     },
 
     //Listado
@@ -49,6 +49,7 @@ let productsdbController = {
             ]
         })
         .then(function(juegos) {
+            console.log(juegos)
             res.render("DBProducts", {juegos:juegos})
         })
     },
@@ -103,16 +104,31 @@ let productsdbController = {
             }
         });
         console.log(req.body);
-        res.redirect("/productsdb/" + req.params.id);
+        res.redirect("/admin/editproducts");
     },
     //Borrado
     borrar: function(req,res){
-        db.Game.destroy({
+
+        
+         db.Game.update({
+            name: req.body.name,
+            logo: req.body.logo,
+            description: req.body.description,
+            video: req.body.video,
+            discount: req.body.discount,
+            release_date: req.body.release_date,
+            age_clasification: req.body.age_clasification,
+            price: req.body.price,
+            category_id: req.body.category_id,
+            distributor_id: req.body.distributor_id,
+            section_id: req.body.section_id,
+            state: req.body.state           
+        },{
             where: {
                 id: req.params.id
             }
-        })
-        res.redirect("/productsdb");
+        });
+        res.redirect("/admin/borrar"); 
     }
 }
 

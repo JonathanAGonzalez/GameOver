@@ -8,7 +8,7 @@ const sequelize = db.sequelize;
 
 controller ={
     index: function(req, res, next) {
-      const resultSearch =[];
+      var resultSearch =[];
       db.Game.findAll({where:{
         section_id:1
       }})
@@ -38,12 +38,11 @@ controller ={
 
                 .then((games) => {
                   games.forEach(juego => {
-                    const gameFind = juego.name.toLowerCase();
-                    console.log(gameFind)
+                    const gameFind = juego.name
                     if(gameFind.includes(req.query.search)){
                       resultSearch.push(juego)
                       console.log(resultSearch)
-                    }                  
+                    }   
                   });
                  /* const juego = games.find(element =>{
                   return  element.name == req.query.search

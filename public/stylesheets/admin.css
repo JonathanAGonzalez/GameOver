@@ -1,21 +1,29 @@
-.menu {
-    background: #fff;
-    display: flex;
-    flex-direction: column;
+.sidebar{
+    background: #d90429;
+    color:white
 }
-.main-boxes img{
-    width: 128px;
-    height: 128px;
+
+.sidebar a{
+    color: white;
 }
-.menu a {
-    margin: 20px;
+
+.sidebar a:active{
+    color: red;
 }
-.main{
-    background: #fff;
+
+.sidebar a:hover{
+    color: yellow;
+    text-decoration: none;
 }
-.main-boxes{
-    display: flex;
-    justify-content: center;
-    margin-bottom:100px;
-    margin-left: 300px;
+
+.sidebar ul li{
+    list-style: none;
+}
+
+.sidebar strong{
+    color: yellow;
+}
+
+.sidebar {
+    height: 100vh;
 }

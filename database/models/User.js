@@ -24,6 +24,9 @@ module.exports = (sequelize,dataTypes) => {
             },
             state: {
                 type: dataTypes.STRING
+            },
+            admin:{
+                type: dataTypes.BOOLEAN
             }
         },
         {
