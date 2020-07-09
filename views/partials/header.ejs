@@ -1,14 +1,14 @@
 <header class="row d-flex justify-content-between">
-    <div class="c-logo col-5 col-sm-4 col-md-3 col-lg-2 ">
+    <div class="c-logo col-12 col-sm-4 col-md-3 col-lg-2 ">
         <a href="/">
             <img class="img-fluid logo" src="/images/logo.png" alt="logo">
         </a>
         <h1>E-commerce</h1>
     </div>
-    <div class="search col-7  col-md-4 col-lg-4  align-self-center">
+    <div class="search col-12  col-md-4 col-lg-4  align-self-center">
         <div>
             <form action="/" method="GET" style="position: relative;">
-                <input type="text" name="search" class="search" placeholder="BUSCADOR">
+                <input type="text" name="search" class="search col-12" placeholder="BUSCADOR">
                <button type="submit"><i class="lupa fas fa-search"></i></button>
                 
                 <% if ( typeof resultSearch != "undefined") { %>
@@ -31,12 +31,12 @@
             </form>
         </div>
     </div>
-    <nav>
+    <nav class="col-3">
         
 
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="">Catalogo</a></li>
+            <li><a href="/products">Catalogo</a></li>
             <!--VALIDACION SI HAY UN USUARIO-->
             <% if (typeof user != "undefined") { %>
                 <li>
