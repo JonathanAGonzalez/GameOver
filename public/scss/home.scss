@@ -14,7 +14,6 @@
                 }
             }
         }
-        
         .c-logo{
             display: flex;
             justify-content: center;
@@ -30,10 +29,62 @@
     }
     .lupa{
         color: #fff;
-        transition: ease-in-out 0.6s;
+        transition: ease-in-out 0.2s;
         &:hover{
             background: #FFFFFF;
             color: #000000;
+        }
+    }
+    .gamefound{
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        z-index: 100;
+        height: 40vh;
+        overflow-y: scroll;
+        scrollbar-color:1px red;
+        scrollbar-width: thin;
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 3px black;
+        .active{
+            display: none;
+        }
+        &::-webkit-scrollbar {
+            
+            display: none;  /* Ocultar scroll */
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+        img{
+            width: 150px;
+        }
+    }
+    form{
+        .search{
+           background: #ffffff;
+           padding: 10px;
+           width: 50%;
+           border: none;
+           border-bottom: 1px solid white;
+           color: red;
+           border-radius: 5px;
+        }
+        button{
+            top: 10px;
+            left: 270px;
+            border: none;
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+           .fa-search{
+               color: red;
+           }
         }
     }
 }
@@ -46,10 +97,10 @@
 }
 
 .titulo-product{
-    margin: 30px 0px;
+    margin: 5px 0px;
     font-family: "Baloo Paaji 2", cursive;
     .estilo-fuente-1{
-        font-size: 40px;
+        font-size: 30px;
         font-weight: bold;
         color: #c9ff07;
     }
@@ -92,6 +143,7 @@ section{
         font-size: 40px;
     }
     
+    
 }
 #top-venta{
     background:url(/images/bg.jpg);
@@ -111,3 +163,23 @@ section{
 
 
 
+@media (max-width: 330px){
+    header{
+        form{
+            .search{
+                margin-left: 60px;
+                input{
+                    width: 100%!important;
+                }
+            }
+        }
+    }
+    nav{
+        margin-right: 100px;
+    }
+    .card{
+        .card-img-top{
+            width: 20px;
+        }
+    }
+}

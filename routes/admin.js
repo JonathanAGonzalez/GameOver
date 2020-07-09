@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 var multer = require('multer');
 const adminController = require('../controller/adminController');
+const productsdbController = require('../controller/productsdbController');
 
 //USANDO MULTER
 var storage = multer.diskStorage({
@@ -16,18 +17,23 @@ var storage = multer.diskStorage({
 
   var upload = multer({ storage: storage })
 
-
+//LISTAR USUARIOS
 router.get('/', adminController.admin);
-//AGREGAR PRODUCTO
-router.get('/addProduct', adminController.product);
-router.post('/addProduct',upload.any(),adminController.addProduct)
+//EDITAR PERFIL USUARIOS
+router.get('/perfilUser/:id', adminController.editPerfil);
+router.post('/perfilUser', adminController.processEditPerfil)
+//CREAR PRODUCTO
+router.get("/crear", productsdbController.crear);
+router.post("/crear", productsdbController.guardado);
 //LISTADO DE PRODUCTOS A EDITAR
-router.get('/editProduct', adminController.editProduct);
-//VISTA DE PRODUCTO A EDITAR
-router.get('/editProduct/detail/:id', adminController.detailEdit);
-router.post('/editProduct/detail/:id', adminController.processEdit);
-//LISTADO DE PRODUCTOS A ELIMINAR
-router.get('/deleteProduct',adminController.deleteProduct);
+router.get("/", productsdbController.listado);
+//ACTUALIZACION
+router.get("/editar/:id", productsdbController.editar);
+router.post("/editar/:id", productsdbController.actualizar);
 //ELIMINAR PRODUCTO
-router.post('/deleteProduct/:id',adminController.deleteProcess);
+router.post("/borrar/:id", productsdbController.borrar);
+//HISTORIAL CARRITOS
+//ELIMINAR CARRITOS
+
+
 module.exports = router;

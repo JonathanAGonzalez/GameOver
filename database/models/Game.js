@@ -46,6 +46,9 @@ module.exports = (sequelize,DataTypes) => {
             type: DataTypes.INTEGER,
             foreignKey: true,
         },
+        state: {
+            type: DataTypes.INTEGER
+        }
     },
     
     {

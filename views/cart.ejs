@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('./partials/head') %>
+
+  <body>
+    <div class="container-fluid">
+      <!--HEADER-->
+    
+      <!--MENU-->
+     
+      <!--  CONTENIDO -->
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p>cantidad:<%= carrito.total %></p>
+            <p><%= comprado.name %></p>
+            <p><%= comprado.price %></p>
+            <p>subtotal</p>
+            <p>eliminar</p>
+          </div>
+         
+        </div>
+      </div>
+    
+    </div>
+
+    <%- include('./partials/scripts') %>
+  </body>
+</html>

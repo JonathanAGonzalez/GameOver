@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 1-GameOver
 
 Temática: Venta de videojuegos rígidos para consolas XBOX 360, XBOX ONE, PS4, NINTENDO. Accesorios para Gamers, Merchandising para Fans y Foro: Fan Zone
@@ -23,7 +22,6 @@ Sitios de referencia:
 
 PRESENTACION:
 https://slides.com/jonigonzalez/p/fullscreen#/
-=======
 # 1-GameOver-Retro Sprint 1
 
 -En el aspecto positivo el grupo trabajó muy bien a nivel organizativo y comunicacional, con creatividad y sincronicidad.
@@ -41,7 +39,6 @@ Action Items:
 -Trello: https://trello.com/b/51LHFIbU/proyecto-int
 
 
->>>>>>> 2399a5e3db6bca10055254fa73757500fdc0b9c2
 =======
 # 1-GameOver-Retro Sprint 2
 
@@ -60,4 +57,4 @@ Action Items:
 -Trello: https://trello.com/b/51LHFIbU/proyecto-int
 
 
->>>>>>> 2399a5e3db6bca10055254fa73757500fdc0b9c2
+

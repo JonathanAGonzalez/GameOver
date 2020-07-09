@@ -8,7 +8,7 @@ const sequelize = db.sequelize;
 
 controller ={
     index: function(req, res, next) {
-
+      const resultSearch =[];
       db.Game.findAll({where:{
         section_id:1
       }})
@@ -33,8 +33,7 @@ controller ={
                 section_id:2
               }})
               
-              .then(ofertas =>{
-            
+              .then(ofertas =>{     
                 res.render('index',{recomendados,distributor,plataformas,vendidos,ofertas})
               })
 
