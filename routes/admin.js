@@ -17,7 +17,7 @@ var storage = multer.diskStorage({
   var upload = multer({ storage: storage })
 
 
-router.get('/', adminController.admin);
+router.get('/:id', adminController.admin);
 //AGREGAR PRODUCTO
 router.get('/addProduct', adminController.product);
 router.post('/addProduct',upload.any(),adminController.addProduct)

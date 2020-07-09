@@ -1,10 +1,22 @@
 const fs = require('fs');
 const path = require('path');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const db = require('../database/models');
+const sequelize = db.sequelize;
 controller = {
   admin: function (req, res, next) {
-    res.render('admin',{
-      users:usersJSON,
+    db.User.findAll()
+    .then((result) => {
+      result.findOne({
+        where:{
+          id:req.params.id
+        }
+      });
+
+      console.log(usuario)
+
+    }).catch((err) => {
+      
     });
   },
   product: (req, res, next) => {

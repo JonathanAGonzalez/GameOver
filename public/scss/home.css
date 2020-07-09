@@ -201,4 +201,19 @@
       grid-template-columns: repeat(4, auto);
   gap: 20px;
 }
+
+@media (max-width: 330px) {
+  header form .search {
+    margin-left: 60px;
+  }
+  header form .search input {
+    width: 100% !important;
+  }
+  nav {
+    margin-right: 100px;
+  }
+  .card .card-img-top {
+    width: 20px;
+  }
+}
 /*# sourceMappingURL=home.css.map */

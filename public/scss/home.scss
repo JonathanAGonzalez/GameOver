@@ -163,3 +163,23 @@ section{
 
 
 
+@media (max-width: 330px){
+    header{
+        form{
+            .search{
+                margin-left: 60px;
+                input{
+                    width: 100%!important;
+                }
+            }
+        }
+    }
+    nav{
+        margin-right: 100px;
+    }
+    .card{
+        .card-img-top{
+            width: 20px;
+        }
+    }
+}
