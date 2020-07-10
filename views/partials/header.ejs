@@ -31,14 +31,21 @@
             </form>
         </div>
     </div>
-    <nav class="col-3">
+    <nav class="col-4">
         
 
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/products">Catalogo</a></li>
             <!--VALIDACION SI HAY UN USUARIO-->
+            
+            <% if (admin != false) { %>
+                <li><a href="/admin"><i class="fas fa-user-shield"></i><strong style="color:yellow"> ADMIN</strong></a></li>
+                <%}%>
+
+
             <% if (typeof user != "undefined") { %>
+
                 <li>
                     <a href="/user/perfiluser">Bienvenid@:<strong style="color:yellow;"> <%= user.first_name %></strong> </a>
                     

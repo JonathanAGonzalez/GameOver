@@ -47,7 +47,7 @@ module.exports = (sequelize,DataTypes) => {
             foreignKey: true,
         },
         state: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING
         }
     },
     

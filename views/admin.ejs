@@ -1,84 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
+  
   <%- include('./partials/head') %>
   <body>
+    <% if (admin != false) { %>
+
       <div class="container-fluid">
           
         <!--HEADER-->
         <%- include('./partials/header')  %>
-   
-        <!--INICIO-->
-            <div class="row">
-              <div class="col-4">
-                <h1>PRODUCTOS</h1>
-                <p class="h4"> AGREGAR</p>
-                <img src="/images/admin/agregar.png" alt="" style="width: 80px;">
-                <a href="/products/crear"><button type="button" class="btn btn-outline-success">Agregar</button></a>
-              </div>
-              <div class="col-4">
-                <p class="h4"> ELIMINAR</p>
-                <img src="/images/admin/borrar.png" alt="" style="width: 80px;"> 
-                <a href="/products/borrar"> <button type="button"
-                class="btn btn-outline-danger">Eliminar</button></a>
-              </div>
-              <div class="col-4">
-                <p class="h4"> EDITAR</p>
-                <img src="/images/admin/modificar.png" style="width: 80px;" alt="" class="img-fluid">
-                <a href="/admin/editProduct"><button type="button" class="btn btn-outline-info">Editar</button></a> 
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-4">
-                  <h1>USUARIOS</h1>
-                  <p class="h4"> LISTAR</p>
-                  <img src="/images/admin/agregar.png" alt="" style="width: 80px;">
-                  <a href="/admin/addproduct"><button type="button" class="btn btn-outline-success">Listar</button></a>
-              </div>
-              <div class="col-4">
-                <p class="h4"> EDITAR</p>
-                <img src="/images/admin/borrar.png" alt="" style="width: 80px;"> 
-                <a href="/admin/deleteProduct"> <button type="button"
-                class="btn btn-outline-danger">Editar</button></a>
-              </div>
-              <div class="col-4">
-                <p class="h4"> ELIMINAR</p>
-                <img src="/images/admin/modificar.png" style="width: 80px;" alt="" class="img-fluid">
-                <a href="/admin/editProduct"><button type="button" class="btn btn-outline-info">Elimar</button></a> 
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-6">
-              <h1>CARRITOS</h1>
-              <p class="h4"> LISTAR</p>
-              <img src="/images/admin/agregar.png" alt="" style="width: 80px;">
-              <a href="/admin/addproduct"><button type="button" class="btn btn-outline-success">Listar</button></a>
-              </div>
-              <div class="col-4">
-              <p class="h4"> ELIMINAR</p>
-              <img src="/images/admin/borrar.png" alt="" style="width: 80px;"> 
-              <a href="/admin/deleteProduct"> <button type="button"
-                class="btn btn-outline-danger">Eliminar</button></a>
-              </div>
-            </div>
+        <!--FIN HEADER-->
+
+        <!--SIDEBAR-->
+        
+        <div class="row">
+          <%- include('./partials/sideBar') %> 
+          <div class="col-10">
+
+            <h3>Bienvenido al control de administrador</h3>
+
+            <ul class="list-group col-3">
+              <li class="list-group-item"><strong>Tareas Pendientes</strong></li>
+              <li class="list-group-item list-group-item-primary">1 - TERMINAR EL ADMIN</li>
+              <li class="list-group-item list-group-item-secondary">2 - TOMAR MATE</li>
+              <li class="list-group-item list-group-item-success">3 - LISTAR USUARIOS</li>
+              <li class="list-group-item list-group-item-danger">4 - MIRAR FUTBOL</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!--FIN SIDEBAR-->
             <%- include('./partials/footer') %>
         </div>
 
-    <!--Optional JavaScript-->
-    <!--jQuery first, then Popper.js, then Bootstrap JS-->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
+    <%- include('./partials/scripts') %> 
+    <%}else{%>
+      <div class="alert alert-danger d-flex" role="alert">
+        <img class="img-fluid" style="width: 450px; border-radius: 5px;"src="https://i0.wp.com/mundowin.com/wp-content/uploads/2019/06/extract-rar-access-denied-fix.png?w=832&ssl=1">
+         <p class="h1"> SOLAMENTE EL ADMINISTRADOR TIENE ACCESO A ESTE SECTOR</p>
+      </div>
+      <%}%>
   </body>
 </html>
