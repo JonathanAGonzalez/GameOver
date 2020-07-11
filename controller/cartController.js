@@ -3,77 +3,126 @@ let sequelize = db.sequelize;
 
 let cartController = {
     index: function(req,res,next){
+        db.Cart.findAll({
+            where:{
+                user_id:req.session.user.id,
+                state: 'ACTIVO'
+            }}).then(cartExists=>{
+                if (Array.isArray(cartExists) && !cartExists.length){
+                    res.send('carrito vacio')
+                }else{
+                    db.Cart_Game.findAll({
+                        where:{
+                            cart_id: cartExists[0].id 
+                        },
+                        include: [
+                            {association: "games"}
+                        ]
+                    }).then(cartGameLista=>{
+                        res.render('cart', {carrito:cartExists[0], cartGameLista:cartGameLista})                    
+                    })                    
+                }
+            })
 
-        res.send('cart')
     },
     add: function(req,res,next){
         //console.log("User id " + req.session.user.id)
         db.Game.findByPk(req.params.id)         
-        .then((comprado) => {
-            //
-            db.Cart.findOne({
+        .then(producto => {
+            console.log(producto)
+            if(producto==null){
+                res.send("producto inexistente")
+            }
+            db.Cart.findAll({
                 where:{
                     user_id:req.session.user.id,
-                    state: "ACTIVO"
-                }}).then(carrito=>{
-        console.log(carrito.id)
-                    if (Array.isArray(carrito) && !carrito.length){
-                        console.log("carrito vacío")
+                    state: 'ACTIVO'
+                }}).then(cartExists=>{
+                    if (Array.isArray(cartExists) && !cartExists.length){
+                        //console.log("carrito vacío")
                         db.Cart.create({
                             state: "ACTIVO",
                             date: Date.now(),
                             user_id: req.session.user.id,
                             total: 0
-                        }).then(carritoJuego =>{
-                            console.log(comprado.price)
-                            console.log(carrito.id)
+                        }).then(cartCreation=>{
+                            //console.log(cartExists.id)
+                            //console.log(producto.id)
+                            //console.log(cartCreation)
                             db.Cart_Game.create({
-                                cart_id: carrito.id,
-                                game_id: comprado.id,
-                                price: comprado.price,
+                                cart_id: cartCreation.id,
+                                game_id: producto.id,
+                                price: producto.price,
                                 quantity: 1
-                            })
-        
+                            }).then(addCartGameItem=>{
+                                console.log("total= "+ producto.price)
+                                db.Cart.update({
+                                    total: producto.price
+                                }, {
+                                    where: {
+                                        id: cartCreation.id
+                                    }
+                                }).then(cartUpdate=>{
+                                    db.Cart.findByPk(cartCreation.id)
+                                .then(bringCartAgain=>{
+                                    db.Cart_Game.findAll({
+                                        where:{
+                                            cart_id: cartCreation.id 
+                                        },
+                                        include: [
+                                            {association: "games"}
+                                        ]
+                                    }).then(cartGameLista=>{
+                                        res.render('cart', {carrito:bringCartAgain, cartGameLista:cartGameLista})                    
+                                    })
+                                }) 
+                                })  
+                            })                            
                         })
-                    }else{
-                        console.log("carrito existente")
-                        console.log(comprado)
-
-                        
-                    } 
-                    
+                    } else {
+                        //console.log(cartExists)
+                        //console.log(cartExists[0].id)
+                        //console.log(cartExists.length)
+                        //console.log("carrito existente")
+                        db.Cart_Game.create({
+                            cart_id: cartExists[0].id,
+                            game_id: producto.id,
+                            price: producto.price,
+                            quantity: 1
+                        }).then(addCartGameItem=>{
+                            //console.log("total")
+                            //console.log("cart_total: " + cartExists[0].total)
+                            //console.log("producto_price: " + producto.price)
+                            var total_nuevo=cartExists[0].total+ producto.price
+                            //console.log("total_nuevo= "+total_nuevo)
+                            db.Cart.update({
+                                total: total_nuevo
+                            }, {
+                                where: {
+                                    id: cartExists[0].id
+                                }
+                            }).then(cartUpdate=>{
+                                db.Cart.findByPk(cartExists[0].id)                                
+                            .then(bringCartAgain=>{
+                                //console.log(bringCartAgain)
+                            db.Cart_Game.findAll({
+                                where:{
+                                    cart_id: cartExists[0].id 
+                                },
+                                include: [
+                                    {association: "games"}
+                                ]
+                            }).then(cartGameLista=>{
+                                res.render('cart', {carrito:bringCartAgain, cartGameLista:cartGameLista})                           
+                            })
+                        })  
+                    })
                 })
-
-            /* db.Cart.create({
-                    state: "ACTIVO",
-                    date: Date.now(),
-                    user_id: req.session.user.id,
-                    total: 0
-                })
-             .then(nuevoCarrito =>{
-                
-            .then(carritoActivo =>{
-                console.log(carritoActivo)
-                res.render('cart', {comprado:comprado,carrito:nuevoCarrito,carritoActivo:carritoActivo})
+                }
             })
-                
-            }) */
         })
-        /* db.Cart.findAll({
-            where:{
-                user_id:req.session.user.id,
-                state: "ACTIVO"
-            }})
-            .then(tieneCarrito =>{
-                //console.log(tieneCarrito);
-                db.Cart_Game.create({
-                    cart_id: tieneCarrito,
-                    game_id: comprado.id,
-                    price: comprado.price,
-                    quantity: 1
-                })
-        }) */
+
     }
-    }
+}
 
 module.exports = cartController;
