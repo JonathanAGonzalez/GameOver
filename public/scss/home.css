@@ -3,7 +3,14 @@
 }
 
 .container-fluid header {
+  height: 105px;
   background: #d90429;
+}
+
+.container-fluid header nav {
+  margin-top: 35px;
+  margin-right: 125px;
+  text-transform: uppercase;
 }
 
 .container-fluid header nav ul {
@@ -35,7 +42,10 @@
 }
 
 .container-fluid header .c-logo .logo {
-  width: 100px;
+  position: absolute;
+  z-index: 999;
+  width: 230px;
+  top: -34px;
 }
 
 .container-fluid header .input-group {
@@ -60,12 +70,12 @@
 }
 
 .container-fluid .carousel .carousel-item img {
-  width: 85% !important;
   margin: 0 auto;
 }
 
 .container-fluid .titulo-product {
   margin: 5px 0px;
+  margin-top: -1px;
   font-family: "Baloo Paaji 2", cursive;
 }
 
@@ -106,11 +116,19 @@
   margin: 10px auto;
 }
 
+.container-fluid section .card-body {
+  padding: 0;
+}
+
 .container-fluid section .btn {
   background: #ef233c;
   border: 1px solid #000000;
   -webkit-transition: ease-in-out 0.2s;
   transition: ease-in-out 0.2s;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .container-fluid section .btn:hover {

@@ -49,21 +49,7 @@
               <img class="card-img-top" src="/images/product-games/<%= recomendados[i].image %>  " alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title"><%= recomendados[i].name %></h5>
-                            
-                  <%distributor.forEach(element => {%>
-                    <% if (element.id == recomendados[i].distributor_id) { %>
-                     
-                      <hr>
-                      <strong>Desarrollador: <%= element.name %></strong>
-                      <hr>
-                      
-                      <% } %>
-                    <%});%>
-                      
-                  </p>
-                    <strong class="precio">$<%= recomendados[i].price %></strong>
-                    
-                
+                    <strong class="precio">$<%= recomendados[i].price %></strong>  
               </div>
               <button onclick="clickear(<%= recomendados[i].id %>)" class="btn btn-primary ">Comprar</a>
             </div>
@@ -88,13 +74,6 @@
                   
                   
                   
-                  <% distributor.forEach(distribuidor => { %>
-                    <% if (distribuidor.id == masComprados.distributor_id) { %>
-                      <p  class="col d-none"><strong>Desarrollador: </strong><%= distribuidor.name %></p>
-                      <% } %>
-                      <% }) %>
-                      <hr>
-                    </p>
                     <strong class="precio">$<%= masComprados.price %> </strong>
                     
                   </div>
@@ -114,15 +93,7 @@
               <div class="card-body">
                 <h5 class="card-title"><%= oferta.name %></h5>
                             
-                  <%distributor.forEach(element => {%>
-                    <% if (element.id == oferta.distributor_id) { %>
-                     
-                      <hr>
-                      <strong>Desarrollador: <%= element.name %></strong>
-                      <hr>
-                      <% } %>
-                    <%});%>
-                  </p>
+                 
                     <strong class="precio">$<%= oferta.price %></strong>
                 <button onclick="clickear(<%= oferta.id %>)" class="btn btn-primary">Comprar</a>
               </div>

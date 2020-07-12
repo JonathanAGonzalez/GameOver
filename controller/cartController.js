@@ -115,6 +115,7 @@ let cartController = {
                             }).then(cartGameLista=>{
                                 res.render('cart', {carrito:bringCartAgain, cartGameLista:cartGameLista})                           
                             })
+                            
                         })  
                     })
                 })
@@ -157,6 +158,17 @@ let cartController = {
         })
     })
 })
+},
+closedCart:function(req,res,next){
+    db.Cart.update({
+        state:"CERRADO"
+    },{
+        where: {
+            id:req.body.cart_name  
+        }
+    }).then(closed=>{
+        res.render('closed')
+    })
 }
 }
 
