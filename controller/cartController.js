@@ -122,7 +122,42 @@ let cartController = {
             })
         })
 
-    }
+    },
+    delete: function(req,res,next){
+        db.Cart_Game.findByPk(req.params.id)
+        
+        .then(cartGameId =>{
+        console.log(cartGameId)
+
+        db.Cart.findByPk(cartGameId.cart_id)
+
+        .then(cart =>{
+
+            let newCartTotal = cart.total - cartGameId.price
+           
+        db.Cart.update({
+            total: newCartTotal
+        },{
+            where: {
+            id:cart.id
+        }})
+
+        .then(cartUpdate =>{
+
+        })
+        
+        db.Cart_Game.destroy({
+
+            where: {
+                id: req.params.id
+            }
+
+        }).then(eliminado =>{
+            res.redirect("/cart");
+        })
+    })
+})
+}
 }
 
 module.exports = cartController;

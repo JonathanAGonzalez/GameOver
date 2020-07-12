@@ -34,8 +34,13 @@ controller = {
                 email: req.body.email,
                 password: req.body.password,
                 avatar: req.files[0].filename,
+<<<<<<< HEAD
                 state:"Active",
                 admin:0
+=======
+                state: "Active",
+                admin: 0
+>>>>>>> cb31bf3d5bae8c0cbce9aec3b55501112764d1f8
             })
             return res.redirect('/')
         }else{
