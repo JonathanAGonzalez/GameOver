@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('./partials/head') %>
+  <body>
+    <div class="container-fluid">
+      <!--HEADER-->
+      <%- include('./partials/header') %> 
+      <!--FIN HEADER-->
+
+      <!--MAIN-->
+      <div class="row ">
+      <%- include('./partials/sideBar') %>
+
+      <div class="products col-10">
+        <h1>Listado de usuarios</h1>
+        <table class="table table-striped table-dark mt-4">
+          <thead>
+            <!--TITULO-->
+            <tr>
+              <th scope="col">ID Carrito</th>
+              <th scope="col">User Id</th>
+            <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Email</th> 
+              <th scope="col">Total</th>
+              <th scope="col">Estado Carrito</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+    
+        <tbody>
+          <% carts.forEach(element => { %>
+            <tr>
+              <td scope="row"><%= element.id %> </td>
+              <td><%= element.user_id %> </td>
+              <td><%= element.users.first_name %> </td>
+              <td><%= element.users.last_name %> </td>
+              <td><%= element.users.email %> </td>
+              <td><%= element.total %> </td>
+              <td><%= element.state %> </td>
+                <td>
+                    <button class="btn btn-success" type="submit">VER CARRITO</button>
+                </td>
+            </tr>
+          <% }) %>
+        </tbody>
+    </table>
+</div>
+</div>
+    <!--FIN MAIN-->
+
+    <!--FOOTER-->
+      <%- include('./partials/footer') %>
+    </div>
+    <!--SCRIPT-->
+
+    <!--Optional JavaScript-->
+    <!--jQuery first, then Popper.js, then Bootstrap JS-->
+    <%- include('./partials/scripts') %> 
+  </body>
+</html>
