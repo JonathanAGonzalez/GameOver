@@ -14,7 +14,7 @@
       <div class="card col-5 m-auto">
         <div class="card-body">
           <h2 class="col-12">EDITAR PRODUCTO</h2>
-          <form action="/products/editar/<%=juego.id%>" method="POST">
+          <form action="/products/editar/<%=juego.id%>" method="POST" enctype="multipart/form-data">
             <div>
                 <label for="">Nombre</label>
                 <input type="text" name="name" value="<%=juego.name%>">
@@ -32,8 +32,8 @@
                 <input type="text" name="discount" value="<%=juego.discount%>">
             </div>
             <div>
-                <label for="">Image</label>
-                <input type="text" name="image" value="<%=juego.image%>">
+                <label for="image">Imagen de portada:</label>
+                <input class="form-control" type="file" name="image" value="<%=juego.image%>"/>
             </div>
             <div>
                 <label for="">Logo</label>
@@ -99,7 +99,6 @@
                     <% } %>    
                 </select>
             </div>
-            
            
             <button type="submit">Editar</button>
         </form>
