@@ -9,11 +9,12 @@ var storage = multer.diskStorage({
     cb(null, './public/images/product-games')
   },
   filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
   }
 })
+var upload = multer({ storage: storage })
  
-var upload = multer({ storage: storage });
+
 
 //Creación
 router.get("/crear", productsdbController.crear);

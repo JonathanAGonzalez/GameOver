@@ -31,7 +31,7 @@ let cartController = {
         .then(producto => {
             console.log(producto)
             if(producto==null){
-                res.send("producto inexistente")
+                res.render("error")
             }
             db.Cart.findAll({
                 where:{

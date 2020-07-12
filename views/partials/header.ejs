@@ -3,62 +3,33 @@
         <a href="/">
             <img class="img-fluid logo" src="/images/logo.png" alt="logo">
         </a>
-        <h1>E-commerce</h1>
     </div>
-    <div class="search col-12  col-md-4 col-lg-4  align-self-center">
-        <div>
-            <form action="/" method="GET" style="position: relative;">
-                <input type="text" name="search" class="search col-12" placeholder="BUSCADOR">
-               <button type="submit"><i class="lupa fas fa-search"></i></button>
-                
-                <% if ( typeof resultSearch != "undefined") { %>
-                    <% if (resultSearch != "") { %>
-                    <div class="gamefound" >
-                        <a href="/">
-                            <i class="far fa-times-circle"></i>
-                        </a>
-                    <% resultSearch.forEach(element => { %>
-                            <ul>
-                                <a href="" >
-                                <%=element.name  %>     
-                                <img  src="/images/product-games/<%= element.image %>  " alt="Card image cap"> 
-                            </a>
-                            </ul>
-                        <% }) %>
-                    </div>
-                    <% } %>
-                <% } %>
-            </form>
-        </div>
-    </div>
-    <nav class="col-4">
-        
-
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/products">Catalogo</a></li>
-            <!--VALIDACION SI HAY UN USUARIO-->
-            
-            <% if (admin != false) { %>
-                <li><a href="/admin"><i class="fas fa-user-shield"></i><strong style="color:yellow"> ADMIN</strong></a></li>
-                <%}%>
-
-
-            <% if (typeof user != "undefined") { %>
-
-                <li>
-                    <a href="/user/perfiluser">Bienvenid@:<strong style="color:yellow;"> <%= user.first_name %></strong> </a>
-                    
-                </li>
-                
-                <li><a href="/user/logout"><i class="fas fa-sign-out-alt"></i></a></li>
-                <% } %>
-                <% if (typeof user == "undefined") { %>
-                    <li><a href="/user/login">Login</a></li>               
-                    <li><a href="/user/register">Registro</a></li>
-              <% } %>
+    
+        <nav>
+            <ul class="col-12">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Catalogo</a></li>
                 <!--VALIDACION SI HAY UN USUARIO-->
-        </ul>
-    </nav>
+                
+                <% if (admin != false) { %>
+                    <li><a href="/admin"><i class="fas fa-user-shield"></i><strong style="color:yellow"> ADMIN</strong></a></li>
+                    <%}%>
+    
+    
+                <% if (typeof user != "undefined") { %>
+    
+                    <li>
+                        <a href="/user/perfiluser">Bienvenid@:<strong style="color:yellow;"> <%= user.first_name %></strong> </a>
+                    </li>
+                    <li><a href="/user/logout"><i class="fas fa-sign-out-alt"></i></a></li>
+                    <li><a href="/cart"><i class="fas fa-shopping-cart"></i></a></li>
+                    <% } %>
+                    <% if (typeof user == "undefined") { %>
+                        <li><a href="/user/login">Login</a></li>               
+                        <li><a href="/user/register">Registro</a></li>
+                  <% } %>
+                    <!--VALIDACION SI HAY UN USUARIO-->
+            </ul>
+        </nav>
     <script> var userLoggedFront = <%- (typeof user != "undefined")?true:false %> </script>
 </header>
