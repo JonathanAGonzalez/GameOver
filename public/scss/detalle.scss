@@ -1,0 +1,24 @@
+.container-fluid{
+    .image{
+        width: 200px;
+    }
+    .category{
+        background: #969494;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+    }
+    .descripcion{
+        padding: 40px;
+        margin-bottom: 40px;
+        h5{
+            color: black;
+            font-weight: bold;
+        }
+        p{
+            color: white;
+            font-weight: normal;
+        }
+    }
+    
+}

@@ -28,7 +28,8 @@
     "sequelize": "^5.22.3",
     "sequelize-cli": "^5.5.1",
     "sweetalert": "^2.1.2",
-    "sweetalert2": "^9.15.3"
+    "sweetalert2": "^9.15.3",
+    "validator": "^13.1.1"
   },
   "devDependencies": {
     "node": "^13.12.0",

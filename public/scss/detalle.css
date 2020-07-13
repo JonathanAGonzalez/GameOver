@@ -1,0 +1,26 @@
+.container-fluid .image {
+  width: 200px;
+}
+
+.container-fluid .category {
+  background: #969494;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.container-fluid .descripcion {
+  padding: 40px;
+  margin-bottom: 40px;
+}
+
+.container-fluid .descripcion h5 {
+  color: black;
+  font-weight: bold;
+}
+
+.container-fluid .descripcion p {
+  color: white;
+  font-weight: normal;
+}
+/*# sourceMappingURL=detalle.css.map */
