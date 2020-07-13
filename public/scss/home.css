@@ -179,20 +179,20 @@
 }
 
 @media (max-width: 360px) {
-  footer {
+  .container-fluid footer {
     margin: 0;
     padding: 0;
   }
-  header form .search {
+  .container-fluid header form .search {
     margin-left: 60px;
   }
-  header form .search input {
+  .container-fluid header form .search input {
     width: 100% !important;
   }
-  section {
+  .container-fluid section {
     text-align: center;
   }
-  .card .card-title {
+  .container-fluid .card .card-title {
     font-size: 14px;
   }
 }
