@@ -42,6 +42,7 @@ router.post("/detailPerfilEdit/:id", upload.any(), adminController.processEditPe
 //ELIMINAR PRODUCTO
 router.get("/borrar", adminController.borrarProducts);
 //HISTORIAL CARRITOS
+router.get("/listarCarts", adminController.listarCarts)
 //ELIMINAR CARRITOS
 
 

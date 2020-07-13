@@ -22,7 +22,9 @@ let productsdbController = {
 
     //Guardado
     guardado: function(req, res, next) {
-        db.Game.create({
+       
+
+         db.Game.create({
             name: req.body.name,
             logo: req.body.logo,
             description: req.body.description,
@@ -36,7 +38,7 @@ let productsdbController = {
             distributor_id: req.body.distributor_id,
             section_id: req.body.section_id,
         });
-        console.log(req.body);
+        
         res.redirect("/products");
     },
 
@@ -89,7 +91,7 @@ let productsdbController = {
             name: req.body.name,
             logo: req.body.logo,
             description: req.body.description,
-            image: req.body.image,
+            image: req.files[0].filename,
             video: req.body.video,
             discount: req.body.discount,
             release_date: req.body.release_date,

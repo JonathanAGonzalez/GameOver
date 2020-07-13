@@ -1,10 +1,13 @@
 .container-fluid{
     position: relative;
     header {
+        height: 105px;
         nav{
+            margin-top: 35px;
+            margin-right: 125px;
+            text-transform: uppercase;
             ul{
                 display: flex;
-                margin: 50px;
                 li{
                     margin-left: 20px;
                     list-style: none;
@@ -20,10 +23,13 @@
             align-items: center;
             color: white;
             .logo{
-                width: 100px;
+                position: absolute;
+                z-index: 999;
+                width: 230px;
+                top: -34px;    
             }
         }
-    background: rgba(217, 4, 41, 1);
+    background: #d90429;
     .input-group{
         background: rgba(202, 202, 202, 1);;
     }
@@ -35,69 +41,23 @@
             color: #000000;
         }
     }
-    .gamefound{
-        display: flex;
-        align-items: flex-end;
-        flex-direction: column;
-        position: absolute;
-        left: 0;
-        z-index: 100;
-        height: 40vh;
-        overflow-y: scroll;
-        scrollbar-color:1px red;
-        scrollbar-width: thin;
-        background: white;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0px 0px 3px black;
-        .active{
-            display: none;
-        }
-        &::-webkit-scrollbar {
-            
-            display: none;  /* Ocultar scroll */
-        }
-        &::-webkit-scrollbar-thumb {
-            background: #ccc;
-            border-radius: 4px;
-        }
-        img{
-            width: 150px;
-        }
-    }
-    form{
-        .search{
-           background: #ffffff;
-           padding: 10px;
-           width: 50%;
-           border: none;
-           border-bottom: 1px solid white;
-           color: red;
-           border-radius: 5px;
-        }
-        button{
-            top: 10px;
-            left: 270px;
-            border: none;
-            background: #ffffff;
-            padding: 10px;
-            border-radius: 5px;
-           .fa-search{
-               color: red;
-           }
-        }
-    }
-}
     
-        
-        
+}
 .carousel{
     padding: 0;
     margin: 0;
+    background:#5c5858 ;
+    
+    .carousel-item {
+        img{
+            margin: 0 auto;
+        }
+    }
 }
 
 .titulo-product{
     margin: 5px 0px;
+    margin-top: -1px;
     font-family: "Baloo Paaji 2", cursive;
     .estilo-fuente-1{
         font-size: 30px;
@@ -114,20 +74,41 @@ section{
     background: rgba(239, 35, 60, 1);
     font-family: "Baloo Paaji 2", cursive;
     
+    .card-container {
+        background: white;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 15px;
+        box-shadow: 0px 0px 10px black;
+        text-align: center;
+        
+        .image-card{
+            width: 100px;
+            border-radius: 5px;
+        }
+    }
     .card-img-top{
-        width: 100%;
+        width: 60%;
+        margin: 10px auto;
+    }
+    .card-body{
+        padding:0
     }
     .btn{
         background: rgba(239, 35, 60, 1);
         border: 1px solid #000000;
-        transition: ease-in-out 0.5s;
+        transition: ease-in-out 0.2s;
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
         &:hover{
             background: rgba(202, 202, 202, 1);
             color: #000000;
         }
     }
     .card{
-        
+        box-shadow: 0px 0px 5px black;
         &:hover{
             background: rgb(59, 59, 59);
             color: #fff;
@@ -135,12 +116,12 @@ section{
         }
     }
     .mas-vendidos{
-        background: blue;
+       
     }
     .precio{
         display: flex;
         justify-content: center;
-        font-size: 40px;
+        font-size: 30px;
     }
     
     
@@ -153,17 +134,23 @@ section{
     background-size: cover;
     margin: 0;
     width: 100vw;
-    #contenedorc{
-       display: grid;
-       grid-template-columns: repeat(4,auto);
-       gap: 20px;
+    .contenedorcard{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      
      }
 }
 }
 
 
 
-@media (max-width: 330px){
+@media (max-width: 360px){
+    footer{
+        margin: 0;
+        padding: 0;
+    }
+
     header{
         form{
             .search{
@@ -174,12 +161,23 @@ section{
             }
         }
     }
-    nav{
-        margin-right: 100px;
-    }
-    .card{
-        .card-img-top{
-            width: 20px;
+    section{
+        text-align: center;
+        
+        .btn{
+            
         }
+    
+    }
+    
+
+
+    .card{
+       
+        .card-title{
+            font-size: 14px;
+            
+        }     
+       
     }
 }

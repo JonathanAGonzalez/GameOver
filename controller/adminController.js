@@ -122,9 +122,34 @@ controller = {
   });
   console.log(req.body);
   res.redirect("/admin/usersDelete");
-  }
-}
-//CONTROLADOR LISTAR CARRITOS
+  },
+
+//LISTAR CARRITOS
+listarCarts: function(req,res,next){
+  db.Cart.findAll({
+      
+    include: [
+      {association: "users"}
+  ]
+  })
+  
+  .then(carts => {
+    
+    db.User.findAll()
+
+    .then(users =>{
+    
+      res.render('cartsList',{carts})
+  
+  })
+  .catch((err) => {
+    console.log(err)
+  })
+  
+  })
+},
+
 //BORRAR CARRITO
+}
 
 module.exports = controller;

@@ -1,0 +1,28 @@
+ <%distributor.forEach(element => {%>
+                    <% if (element.id == recomendados[i].distributor_id) { %>
+                     
+                      <hr>
+                      <strong>Desarrollador: <%= element.name %></strong>
+                      <hr>
+                      
+                      <% } %>
+                    <%});%>
+
+                    
+                  <% distributor.forEach(distribuidor => { %>
+                    <% if (distribuidor.id == masComprados.distributor_id) { %>
+                      <p  class="col d-none"><strong>Desarrollador: </strong><%= distribuidor.name %></p>
+                      <% } %>
+                      <% }) %>
+                      <hr>
+                    </p>
+
+                     <%distributor.forEach(element => {%>
+                    <% if (element.id == oferta.distributor_id) { %>
+                     
+                      <hr>
+                      <strong>Desarrollador: <%= element.name %></strong>
+                      <hr>
+                      <% } %>
+                    <%});%>
+                  </p>
