@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('./partials/head') %>
+
+  <body>
+    <body>
+      <div class="container-fluid">
+          <%- include('./partials/header') %>
+          <%- include('./partials/navbar') %>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1>USUARIO: <%= carrito.users.email %> </h1>
+            <h2>COMPRA N°: <%= carrito.id %></h2>
+            <table class="table table-borderless-dark">
+              <thead>
+                <tr class="dark">
+                  <th scope="col">Id Producto</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Precio</th>
+                </tr>
+                </thead>
+                <% juegos.forEach(element => { %>
+                    <tr>
+                    <td><%= element.game_id %> </td>
+                    <td><%= element.games.name %> </td>
+                    <td><%= element.price %> </td>
+                    </tr>
+                    <% }) %>
+                </table>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-12 text-right">
+            <h3>TOTAL: ARS <%= carrito.total %></h2>
+          </div>
+        </div>
+    
+      </div>
+    
+    </div>
+    
+
+    <%- include('./partials/scripts') %>
+  </body>
+</html>
