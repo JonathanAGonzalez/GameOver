@@ -1,37 +1,32 @@
-var formulario = document.querySelector('#editUser');
-var btnEnviar = document.querySelector('#enviar');
-var front = document.querySelector('.front');
+var nombre = document.querySelector("#first_name");
+var apellido = document.querySelector("#last_name");
+var avatar = document.querySelector("#file");
+var contrasenia = document.querySelector("#password");
+var formulario = document.querySelector("#editUser");
+console.log(
+  nombre.value + apellido.value + avatar.value + contrasenia.value + formulario
+);
 
-
-
-
-
-
-btnEnviar.addEventListener("click",function(event){
-  let errores=[];
-    if(formulario[0].value == "" || formulario[0].value == null){
-      errores.push('❗<p>El campo Nombre esta vacio❗</p>');
+formulario.addEventListener("submit", function (e) {
+  
+  let errores = [];
+  if (nombre.value == "") {
+    errores.push("Porfavor ingresa un nombre");
+  }
+  if (apellido.value == "") {
+    errores.push("Porfavor ingresa un apellido");
+  }
+  if (avatar.value == "") {
+    errores.push("Porfavor ingresa un avatar");
+  }
+  if (contrasenia.value == "") {
+    errores.push("Porfavor ingresa un contrasenia");
+  }
+  if(errores.length > 0){
+    e.preventDefault();
+    let ulErrores = document.querySelector("div.front ul")
+    for (let i = 0; i < errores.length; i++) {
+      ulErrores.innerHTML += "<li>" + errores[i] + "</div>"      
     }
-           if(formulario[1].value == "" || formulario[1].value == null){
-            errores.push('<p>❗El campo Apellido esta vacio❗</p>')
-         }
-         if (errores.length > 0) {
-           event.preventDefault();
-           errores.forEach((erroress) => {
-             front.innerHTML += erroress;
-           });
-         }    
-})
-
-
-console.log(formulario)
-console.log(front)
-
-
-
-
-
-
-
-
-
+  }
+});
