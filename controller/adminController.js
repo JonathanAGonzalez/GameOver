@@ -149,7 +149,28 @@ listarCarts: function(req,res,next){
   })
 },
 
-//BORRAR CARRITO
+//VER CARRITO
+verCart:function(req,res,next){
+  db.Cart.findByPk(req.params.id,{
+
+    include: [
+      {association: "users"}
+  ]
+}).then(carritos =>{
+  db.Cart_Game.findAll({
+    where:{
+      cart_id:req.params.id
+    },
+    include: [
+        {association: "games"}
+    ]
+  }).then(verCart_Games => {
+    res.render("verCart",{carrito:carritos, juegos:verCart_Games})
+  })
+})
+
+
+}
 }
 
 module.exports = controller;

@@ -20,7 +20,7 @@
               
                     <div class="card col-dm-3 d-flex justify-content-around m-4" style="width: 18rem;">
                       <img class="card-img-top" src="/images/product-games/<%= juegos[i].image %>" alt="Card image cap">
-                      <div class="card-body">
+                      <div class="card-body text-center">
                         <h5 class="card-title"><%= juegos[i].name %></h5>
                         <hr>
                         <p class="card-text">
@@ -35,7 +35,9 @@
                               $<%= juegos[i].price %>
                             </strong>
                             <hr>
-                        <a href="/products/<%= juegos[i].id %>" class="btn btn-primary offset-4">Ver detalle</a>
+                        <div class="text-center mb-2">
+                        <a href="/products/<%= juegos[i].id %>" class="btn btn-detail">Ver detalle</a>
+                      </div>
                       </div>
                     </div>
                     <% } %>
