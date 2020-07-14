@@ -169,10 +169,6 @@ section{
     }
     section{
         text-align: center;
-        
-        .btn{
-            
-        }
     
     }
     
@@ -187,3 +183,12 @@ section{
        
     }
 }
+@media (max-width: 580px){
+    .container-fluid header{
+        height: initial;
+    }
+    .container-fluid header .c-logo .logo{
+    position: relative;
+    width: 100px;
+    top: 0;
+}}

@@ -11,12 +11,12 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h1>USUARIO: <%= user.email %> </h1>
-            <h2>COMPRA N°: <%= carrito.id %></h2>
-            <table class="table table-borderless-dark">
+            <h3>USUARIO: <%= user.email %> </h3>
+            <h4>COMPRA N°: <%= carrito.id %></h4>
+            <table class="table table-borderless-dark mt-4">
               <thead>
                 <tr class="dark">
-                  <th scope="col">Id Producto</th>
+                  <th scope="col">Id</th>
                   <th scope="col">Nombre</th>
                   <th scope="col">Precio</th>
                   <th scope="col"></th>
@@ -62,7 +62,7 @@
     
     </div>
     
-
+    <%- include('./partials/footer') %> 
     <%- include('./partials/scripts') %>
   </body>
 </html>

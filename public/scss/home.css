@@ -203,4 +203,15 @@
     font-size: 14px;
   }
 }
+
+@media (max-width: 580px) {
+  .container-fluid header {
+    height: initial;
+  }
+  .container-fluid header .c-logo .logo {
+    position: relative;
+    width: 100px;
+    top: 0;
+  }
+}
 /*# sourceMappingURL=home.css.map */
