@@ -10,11 +10,14 @@
       <!--MAIN-->
       <div class="row ">
       <%- include('./partials/sideBar') %>
-
+      
       <div class="card col-5 m-auto">
+        <div class="front">
+          <ul></ul>
+        </div>
         <div class="card-body">
           <h2 class="col-12">AGREGAR PRODUCTO</h2>
-          <form action="/products/crear" method="POST" enctype="multipart/form-data">
+          <form action="/products/crear" method="POST" enctype="multipart/form-data" id="validatorProduct">
             <div class="form-group">
               <label for="name">Nombre de producto</label>
               <input
@@ -94,7 +97,7 @@
 
             <div class="form-group">
               <label for="name">Categoria</label>
-              <select name="category_id" id="">
+              <select name="category_id" id="category_id">
                 <% for (let i = 0; i < categorias.length; i++){ %>
                 <option value="<%=categorias[i].id%>">
                   <%=categorias[i].name%>
@@ -106,7 +109,7 @@
 
             <div class="form-group">
               <label for="name">Distribuidor</label>
-              <select name="distributor_id" id="">
+              <select name="distributor_id" id="distributor_id">
                 <% for (let i = 0; i < distribuidores.length; i++){ %>
                 <option value="<%=distribuidores[i].id%>">
                   <%=distribuidores[i].name%>
@@ -173,7 +176,7 @@
             </div>
 
             <label for="image">Imagen de portada:</label>
-            <input type="file" name="image">
+            <input type="file" name="image" id="image">
 
             <button type="submit" class="mt-4">Enviar</button>
           </form>

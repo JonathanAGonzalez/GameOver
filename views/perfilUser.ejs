@@ -48,8 +48,13 @@
                 <div class="col-sm-9">
                     <h5>Datos a editar:</h5>
                     <hr>
+                    <div class="front">
+                    <ul>
+
+                    </ul>         
+                    </div>
                     <!--FORMULARIO-->
-                    <form  action="/user/perfilUser" method="post" enctype="multipart/form-data">
+                    <form  action="/user/perfilUser/<%= user.id %>" method="post" enctype="multipart/form-data" id="editUser"
                         <!--NOMBRE-->
                         <div class="col-xs-6">
                             <label for="first_name">
@@ -72,7 +77,7 @@
                             <label for="avatar">
                                 <h4>Avatar</h4>
                             </label>
-                            <input type="file" class="form-control" name="file" id="file">
+                            <input type="file" class="form-control" name="avatar" id="file">
                         </div>
                         <!--CONTRASEÑA-->
                         <div class="col-xs-6">
@@ -85,8 +90,7 @@
                         <!--GUARDAR-->
                         <div class="col-xs-12">
                             <br>
-                            <button class="btn btn-lg btn-success" type="submit"><i
-                                    class="glyphicon glyphicon-ok-sign"></i> Guardar</button>
+                            <button class="btn btn-lg btn-success" type="submit" id="enviar"></i> Guardar</button>
                         </div>
                     </form>
                 </div>
@@ -97,9 +101,7 @@
     </div>
    
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <%- include('./partials/scripts') %> 
 </body>
 
 </html>

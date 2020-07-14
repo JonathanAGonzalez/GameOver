@@ -34,3 +34,15 @@ h3{
 .sidebar {
     height: 100vh;
 }
+
+.list-group {
+        margin-bottom: 60px;
+    }
+
+  
+  @media (max-width: 576px) {
+    .sidebar {
+      width: 100%;
+    }
+    
+  }
