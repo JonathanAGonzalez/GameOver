@@ -73,8 +73,7 @@ let productsdbController = {
 
     //Editado
     editar: function(req,res) {
-        let pedidoJuego = db.Game.findByPk(req.params.id);
-        
+        let pedidoJuego = db.Game.findByPk(req.params.id);        
         let pedidoSeccion = db.Section.findAll();
         let pedidoDistribuidor = db.Distributor.findAll();
         let pedidoCategoria = db.Category.findAll();
@@ -91,7 +90,7 @@ let productsdbController = {
             name: req.body.name,
             logo: req.body.logo,
             description: req.body.description,
-            image: req.body.image,
+            image: req.files[0].filename,
             video: req.body.video,
             discount: req.body.discount,
             release_date: req.body.release_date,

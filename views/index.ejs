@@ -49,8 +49,20 @@
               <img class="card-img-top" src="/images/product-games/<%= recomendados[i].image %>  " alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title"><%= recomendados[i].name %></h5>
-                    <strong class="precio">$<%= recomendados[i].price %></strong>  
-              </div>
+                            
+                  <%distributor.forEach(element => {%>
+                    <% if (element.id == recomendados[i].distributor_id) { %>
+                     
+                      <hr>
+                      <strong>Desarrollador: <%= element.name %></strong>
+                      <hr>
+                      
+                      <% } %>
+                    <%});%>
+                      
+                  </p>
+                    <strong class="precio">$<%= recomendados[i].price %></strong>
+                    <hr>
               <button onclick="clickear(<%= recomendados[i].id %>)" class="btn btn-primary ">Comprar</a>
             </div>
             <% } %> 

@@ -1,18 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const { check, validationResult, body } = require('express-validator');
-
 const bcrypt = require('bcryptjs');
-const saltRounds = 10 ;   
-const myPlaintextPassword = ' s0 / \ / \ P 4 $$ w0rD ' ;   
-const someOtherPlaintextPassword = ' not_bacon ' ;  
-
-
-
 const db = require('../database/models');
-const { log } = require('console');
 const sequelize = db.sequelize;
-
 
 
 
@@ -93,7 +84,7 @@ controller = {
         
     },
     processEditPerfil: (req, res, next) => {
-        db.User.update({
+        /* db.User.update({
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             password: req.body.password,
@@ -102,7 +93,20 @@ controller = {
             where: {
                 email: req.body.email
             }
-        });
+        }); */
+
+        db.User.update({
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            avatar: req.files[0].filename,
+            password: req.body.password
+        },{
+            where:{
+                id:req.params.id
+            }
+        })
+        req.session.destroy()
+        res.clearCookie()
         res.redirect("/");
     }
 }

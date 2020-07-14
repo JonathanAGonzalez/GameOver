@@ -42,8 +42,7 @@ router.get('/logout',usersController.logout);
 
 //PERFIL DE USUARIO
 router.get('/perfilUser', usersController.perfilUser);
-router.post('/perfilUser', usersController.processPerfil);
-router.post('/perfilUser',upload.any(), usersController.processEditPerfil);
+router.post('/perfilUser/:id',upload.any(), usersController.processEditPerfil);
 
 
 
