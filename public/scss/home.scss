@@ -3,8 +3,6 @@
     header {
         height: 105px;
         nav{
-            margin-top: 35px;
-            margin-right: 125px;
             text-transform: uppercase;
             ul{
                 display: flex;
@@ -22,12 +20,20 @@
             justify-content: center;
             align-items: center;
             color: white;
-            .logo{
-                position: absolute;
-                z-index: 999;
-                width: 230px;
-                top: -34px;    
-            }
+        }
+        .logo{
+            position: absolute;
+            z-index: 999;
+            width: 230px;
+            top: -34px;    
+        }
+        .navbar-nav{
+            padding-left: 165px;
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: rgba(0,0,0,.5);
+            color: white;
+            font-weight: bold;
         }
     background: #d90429;
     .input-group{
@@ -121,9 +127,6 @@ section{
             transition: ease-in-out 0.3s;
         }
     }
-    .mas-vendidos{
-       
-    }
     .precio{
         display: flex;
         justify-content: center;
@@ -172,9 +175,6 @@ section{
         text-align: center;
     
     }
-    
-
-
     .card{
        
         .card-title{
@@ -183,8 +183,8 @@ section{
         }     
        
     }
-}
-@media (max-width: 580px){
+}}
+@media (max-width: 992px){
     .container-fluid header{
         height: initial;
     }
@@ -192,4 +192,47 @@ section{
     position: relative;
     width: 100px;
     top: 0;
-}}
+    }
+    .table .eliminar{
+    width: 30px;
+    }
+    .table .nombre{
+        width: 30px;
+    }
+    .table .precio{
+        width:30px;
+    }
+    .text-center-xs{
+        text-align: center!important;
+    }
+    .table-cart {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .container-fluid header .logo{
+        max-width: 135px;
+        position: relative !important;
+        top: -27px;
+    }
+    .navbar-brand{
+        height: 56px;
+    }
+    .container-fluid header .navbar-nav{
+        padding-left: 0;
+        padding-top: 40px;
+    }
+    .navbar{
+        width: 100%;
+    }
+
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-light .navbar-toggler {
+    border-color: rgba(255,255,255,.5);
+}

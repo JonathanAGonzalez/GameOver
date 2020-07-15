@@ -1,0 +1,35 @@
+<header class="row d-flex justify-content-between">
+    <div class="c-logo col-12 col-sm-4 col-md-3 col-lg-2 ">
+        <a href="/">
+            <img class="img-fluid logo" src="/images/logo.png" alt="logo">
+        </a>
+    </div>
+    
+        <nav>
+            <ul class="col-12">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Catalogo</a></li>
+                <!--VALIDACION SI HAY UN USUARIO-->
+                
+                <% if (admin != false) { %>
+                    <li><a href="/admin"><i class="fas fa-user-shield"></i><strong style="color:yellow"> ADMIN</strong></a></li>
+                    <%}%>
+    
+    
+                <% if (typeof user != "undefined") { %>
+    
+                    <li>
+                        <a href="/user/perfiluser">Bienvenid@:<strong style="color:yellow;"> <%= user.first_name %></strong> </a>
+                    </li>
+                    <li><a href="/user/logout"><i class="fas fa-sign-out-alt"></i></a></li>
+                    <li><a href="/cart"><i class="fas fa-shopping-cart"></i></a></li>
+                    <% } %>
+                    <% if (typeof user == "undefined") { %>
+                        <li><a href="/user/login">Login</a></li>               
+                        <li><a href="/user/register">Registro</a></li>
+                  <% } %>
+                    <!--VALIDACION SI HAY UN USUARIO-->
+            </ul>
+        </nav>
+    <script> var userLoggedFront = <%- (typeof user != "undefined")?true:false %> </script>
+</header>

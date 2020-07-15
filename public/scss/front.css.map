@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,CAAC,CAAA;EACG,KAAK,EAAE,GAAG;EACV,WAAW,EAAE,IAAI;EACjB,WAAW,EAAE,MAAM;CACtB",
+    "mappings": "",
     "sources": [
         "front.scss"
     ],

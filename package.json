@@ -26,8 +26,7 @@
     "path": "^0.12.7",
     "save": "^2.4.0",
     "sequelize": "^5.22.3",
-    "sequelize-cli": "^5.5.1",
-    "sweetalert2": "^9.15.3"
+    "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
     "node": "^13.12.0",

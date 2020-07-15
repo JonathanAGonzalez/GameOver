@@ -2,9 +2,9 @@ module.exports = {
     "development": {
         "username": "root",
         "password": "root",
-        "database": "basegameover",
+        "database": "gameover_db",
         "host": "127.0.0.1",
-        "port": 8889,
+        "port": 3306,
         "dialect": "mysql",
         "operatorsAliases": false
     },

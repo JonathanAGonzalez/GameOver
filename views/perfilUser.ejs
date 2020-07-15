@@ -7,21 +7,19 @@
         <!--HEADER-->
         <%- include('./partials/header') %>
         <%- include('./partials/navbar') %>
-
+    </div>
         
 
         <% if (typeof user != "undefined") { %>
             
         
-        <div class="container  ">
+        <div class="container">
             <!--Logo-->
             <div class="row">
-                <div class="col-sm-10">
+                <div class="col-sm-12">
                     <h1> <%= `Usuario: ${user.first_name} ${user.last_name}` %>    </h1><a class="btn btn-primary" href="/user/logout"
                         role="button">Logout</a>
                 </div>
-                <div class="col-sm-2"><a href="#" class="pull-right"><img title="profile image"
-                            class="img-circle img-responsive img-fluid" src="/images/logo.png"></a></div>
             </div>
             <!--AVATAR-->
             <div class="row">
@@ -97,7 +95,8 @@
             </div>
         </div>
         <% } %>
-        <%- include('./partials/footer') %>
+    <div class="container-fluid">
+            <%- include('./partials/footer') %>
     </div>
    
 
